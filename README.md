@@ -12,9 +12,10 @@ public class DemoActivity extends Activity {
 
         Logging.i(); // Print Form : Class Name: Method, Line
         Logging.i("Comment"); // Print Form : Class Name: Method, Line, Comment
+        try{
         Logging.i(Object); // Print Form : Class Name : [Object Name], Variable Name, Value
         Logging.i(ArrayList<Object>); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
-        
+        }catch(Exception e){}
         Logging.e();
         ...
         Logging.w();
