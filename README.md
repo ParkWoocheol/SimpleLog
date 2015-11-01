@@ -12,15 +12,35 @@ public class DemoActivity extends Activity {
 
         Logging.i(); // Print Form : Class Name: Method, Line
         Logging.i("Comment"); // Print Form : Class Name: Method, Line, Comment
-
+        try{
+        Logging.i(Object); // Print Form : Class Name : [Object Name], Variable Name, Value
+        Logging.i(ArrayList<Object>); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        }catch(Exception e){}
+        
         Logging.e();
-        Logging.e("Comment");
-
+        ...
+        Logging.w();
+        ...
+        Logging.d();
+        ...
     }
 }
 ```
-
-
+Download
+============
+Maven:
+```xml
+<dependency>
+  <groupId>com.mrparkwc</groupId>
+  <artifactId>SimpleLog</artifactId>
+  <version>0.9.2</version>
+  <type>aar</type>
+</dependency>
+```
+Gradle:
+```groovy
+compile 'com.mrparkwc.simplelog:SimpleLog:0.9.2'
+```
 Developed By
 ============
 
