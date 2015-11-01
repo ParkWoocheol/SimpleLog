@@ -60,7 +60,7 @@ public class Logging {
     public static void d(String dataTag, ArrayList<String> arrayList) {
         for (int i = 0; i < arrayList.size(); i++) {
             Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
-                    + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList);
+                    + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList.get(i));
         }
     }
 
@@ -136,7 +136,7 @@ public class Logging {
     public static void i(String dataTag, ArrayList<String> arrayList) {
         for (int i = 0; i < arrayList.size(); i++) {
             Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
-                    + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList);
+                    + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList.get(i));
         }
     }
 
@@ -211,7 +211,7 @@ public class Logging {
     public static void w(String dataTag, ArrayList<String> arrayList) {
         for (int i = 0; i < arrayList.size(); i++) {
             Log.e(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
-                    + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList);
+                    + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList.get(i));
         }
     }
 
@@ -287,7 +287,7 @@ public class Logging {
     public static void e(String dataTag, ArrayList<String> arrayList) {
         for (int i = 0; i < arrayList.size(); i++) {
             Log.e(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
-                    + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList);
+                    + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList.get(i));
         }
     }
 
