@@ -67,6 +67,7 @@ public class Logging {
     /**
      * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name], Variable Name, Value
+     *
      * @param object
      * @throws Exception
      */
@@ -84,6 +85,7 @@ public class Logging {
     /**
      * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
      * @param arrayList
      * @throws Exception
      */
@@ -101,7 +103,6 @@ public class Logging {
             }
         }
     }
-
 
 
     /**
@@ -142,6 +143,7 @@ public class Logging {
     /**
      * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name], Variable Name, Value
+     *
      * @param object
      * @throws Exception
      */
@@ -159,6 +161,7 @@ public class Logging {
     /**
      * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
      * @param arrayList
      * @throws Exception
      */
@@ -215,6 +218,7 @@ public class Logging {
     /**
      * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name], Variable Name, Value
+     *
      * @param object
      * @throws Exception
      */
@@ -232,6 +236,7 @@ public class Logging {
     /**
      * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
      * @param arrayList
      * @throws Exception
      */
@@ -289,6 +294,7 @@ public class Logging {
     /**
      * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name], Variable Name, Value
+     *
      * @param object
      * @throws Exception
      */
@@ -306,6 +312,7 @@ public class Logging {
     /**
      * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
      * @param arrayList
      * @throws Exception
      */
