@@ -4,8 +4,8 @@ apply plugin: 'com.novoda.bintray-release'
 publish {
     userOrg = 'woocheol'
     groupId = 'com.mrparkwc'
-    artifactId = 'SimpleLog'
-    publishVersion = '0.9.2'
+    artifactId = 'simplelog'
+    publishVersion = '0.9.3'
     desc = 'Simple Log'
     website = 'https://github.com/ParkWoocheol/SimpleLog'
 }
