@@ -24,8 +24,13 @@ public class DemoActivity extends Activity {
     }
 }
 ```
+Download
+============
 
-
+Gradle:
+```Gradle
+compile 'com.mrparkwc.simplelog:simplelog:0.9.2'
+```
 Developed By
 ============
 
