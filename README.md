@@ -27,7 +27,7 @@ public class DemoActivity extends Activity {
 Download
 ============
 Maven:
-```Maven
+```xml
 <dependency>
   <groupId>com.mrparkwc</groupId>
   <artifactId>SimpleLog</artifactId>
@@ -36,7 +36,7 @@ Maven:
 </dependency>
 ```
 Gradle:
-```Gradle
+```groovy
 compile 'com.mrparkwc.simplelog:SimpleLog:0.9.2'
 ```
 Developed By
