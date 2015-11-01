@@ -32,14 +32,14 @@ Maven:
 ```xml
 <dependency>
   <groupId>com.mrparkwc</groupId>
-  <artifactId>SimpleLog</artifactId>
-  <version>0.9.2</version>
+  <artifactId>simplelog</artifactId>
+  <version>0.9.4</version>
   <type>aar</type>
 </dependency>
 ```
 Gradle:
 ```groovy
-compile 'com.mrparkwc.simplelog:SimpleLog:0.9.2'
+compile 'com.mrparkwc:simplelog:0.9.4'
 ```
 Developed By
 ============
