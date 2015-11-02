@@ -65,7 +65,6 @@ public class Logging {
     }
 
     /**
-     * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name], Variable Name, Value
      *
      * @param object
@@ -75,6 +74,7 @@ public class Logging {
         Class<?> objClass = object.getClass();
         Field[] fields = objClass.getDeclaredFields();
         for (Field field : fields) {
+            field.setAccessible(true);
             String name = field.getName();
             Object value = field.get(object);
             Log.d(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
@@ -83,7 +83,6 @@ public class Logging {
     }
 
     /**
-     * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
      *
      * @param arrayList
@@ -96,6 +95,7 @@ public class Logging {
             Class<?> objClass = object.getClass();
             Field[] fields = objClass.getDeclaredFields();
             for (Field field : fields) {
+                field.setAccessible(true);
                 String name = field.getName();
                 Object value = field.get(object);
                 Log.d(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
@@ -141,7 +141,6 @@ public class Logging {
     }
 
     /**
-     * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name], Variable Name, Value
      *
      * @param object
@@ -151,6 +150,7 @@ public class Logging {
         Class<?> objClass = object.getClass();
         Field[] fields = objClass.getDeclaredFields();
         for (Field field : fields) {
+            field.setAccessible(true);
             String name = field.getName();
             Object value = field.get(object);
             Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
@@ -159,7 +159,6 @@ public class Logging {
     }
 
     /**
-     * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
      *
      * @param arrayList
@@ -172,6 +171,7 @@ public class Logging {
             Class<?> objClass = object.getClass();
             Field[] fields = objClass.getDeclaredFields();
             for (Field field : fields) {
+                field.setAccessible(true);
                 String name = field.getName();
                 Object value = field.get(object);
                 Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
@@ -216,7 +216,6 @@ public class Logging {
     }
 
     /**
-     * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name], Variable Name, Value
      *
      * @param object
@@ -226,6 +225,7 @@ public class Logging {
         Class<?> objClass = object.getClass();
         Field[] fields = objClass.getDeclaredFields();
         for (Field field : fields) {
+            field.setAccessible(true);
             String name = field.getName();
             Object value = field.get(object);
             Log.w(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
@@ -234,7 +234,6 @@ public class Logging {
     }
 
     /**
-     * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
      *
      * @param arrayList
@@ -247,6 +246,7 @@ public class Logging {
             Class<?> objClass = object.getClass();
             Field[] fields = objClass.getDeclaredFields();
             for (Field field : fields) {
+                field.setAccessible(true);
                 String name = field.getName();
                 Object value = field.get(object);
                 Log.w(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
@@ -292,7 +292,6 @@ public class Logging {
     }
 
     /**
-     * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name], Variable Name, Value
      *
      * @param object
@@ -302,6 +301,7 @@ public class Logging {
         Class<?> objClass = object.getClass();
         Field[] fields = objClass.getDeclaredFields();
         for (Field field : fields) {
+            field.setAccessible(true);
             String name = field.getName();
             Object value = field.get(object);
             Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
@@ -310,7 +310,6 @@ public class Logging {
     }
 
     /**
-     * if need Class inner variable access modifier set default, protected, public
      * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
      *
      * @param arrayList
@@ -323,6 +322,7 @@ public class Logging {
             Class<?> objClass = object.getClass();
             Field[] fields = objClass.getDeclaredFields();
             for (Field field : fields) {
+                field.setAccessible(true);
                 String name = field.getName();
                 Object value = field.get(object);
                 Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
