@@ -33,13 +33,13 @@ Maven:
 <dependency>
   <groupId>com.mrparkwc</groupId>
   <artifactId>simplelog</artifactId>
-  <version>0.9.5</version>
+  <version>0.9.6</version>
   <type>aar</type>
 </dependency>
 ```
 Gradle:
 ```groovy
-compile 'com.mrparkwc:simplelog:0.9.5'
+compile 'com.mrparkwc:simplelog:0.9.6'
 ```
 Developed By
 ============
