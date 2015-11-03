@@ -15,6 +15,8 @@ public class DemoActivity extends Activity {
         try{
         Logging.i(Object); // Print Form : Class Name : [Object Name], Variable Name, Value
         Logging.i(ArrayList<Object>); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        Logging.i(ArrayList<Object>, int index); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        Logging.i(ArrayList<Object>, int startIndex, int endIndex); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
         }catch(Exception e){}
         
         Logging.e();
