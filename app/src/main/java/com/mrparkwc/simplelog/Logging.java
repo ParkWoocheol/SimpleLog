@@ -33,33 +33,46 @@ public class Logging {
      */
 
     /**
-     * Print Form : Class Name: Method, Line
+     * Print Form : Class Name: Method Name, Line
      */
     public static void d() {
-        Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
+        Log.d(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
                 + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber());
     }
 
     /**
-     * Print Form : Class Name: Method, Line, Comment
+     * Print Form : Class Name: Method Name, Line, Comment
      *
      * @param comment
      */
     public static void d(String comment) {
 
-        Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
+        Log.d(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
                 + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", COMMENT: " + comment);
     }
 
     /**
-     * Print Form : Class Name: Method, Line, Tag, String ArrayList Data
+     * Print Form : tag: Class Name , Method Name, Line, Comment
+     *
+     * @param comment
+     */
+    public static void d(String tag,String comment) {
+
+        Log.d(tag,"CLASS: "+getClassName(Thread.currentThread().getStackTrace()[3].getClassName())+
+                ", METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
+                + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", COMMENT: " + comment);
+    }
+
+
+    /**
+     * Print Form : Class Name: Method Name, Line, Tag, String ArrayList Data
      *
      * @param dataTag
      * @param arrayList
      */
     public static void d(String dataTag, ArrayList<String> arrayList) {
         for (int i = 0; i < arrayList.size(); i++) {
-            Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
+            Log.d(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
                     + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList.get(i));
         }
     }
@@ -166,7 +179,7 @@ public class Logging {
      */
 
     /**
-     * Print Form : Class Name: Method, Line
+     * Print Form : Class Name: Method Name, Line
      */
     public static void i() {
         Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
@@ -174,7 +187,7 @@ public class Logging {
     }
 
     /**
-     * Print Form : Class Name: Method, Line, Comment
+     * Print Form : Class Name: Method Name, Line, Comment
      *
      * @param comment
      */
@@ -182,6 +195,19 @@ public class Logging {
         Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
                 + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", COMMENT: " + comment);
     }
+
+    /**
+     * Print Form : tag: Class Name , Method Name, Line, Comment
+     *
+     * @param comment
+     */
+    public static void i(String tag,String comment) {
+
+        Log.i(tag,"CLASS: "+getClassName(Thread.currentThread().getStackTrace()[3].getClassName())+
+                ", METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
+                + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", COMMENT: " + comment);
+    }
+
 
     /**
      * Print Form : Class Name: Method, Line, Tag, String ArrayList Data
@@ -297,32 +323,44 @@ public class Logging {
      */
 
     /**
-     * Print Form : Class Name: Method, Line
+     * Print Form : Class Name: Method Name, Line
      */
     public static void w() {
-        Log.e(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
+        Log.w(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
                 + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber());
     }
 
     /**
-     * Print Form : Class Name: Method, Line, Comment
+     * Print Form : Class Name: Method Name, Line, Comment
      *
      * @param comment
      */
     public static void w(String comment) {
-        Log.e(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
+        Log.w(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
                 + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", COMMENT: " + comment);
     }
 
     /**
-     * Print Form : Class Name: Method, Line, Tag, String ArrayList Data
+     * Print Form : tag: Class Name , Method Name, Line, Comment
+     *
+     * @param comment
+     */
+    public static void w(String tag,String comment) {
+
+        Log.w(tag,"CLASS: "+getClassName(Thread.currentThread().getStackTrace()[3].getClassName())+
+                ", METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
+                + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", COMMENT: " + comment);
+    }
+
+    /**
+     * Print Form : Class Name: Method Name, Line, Tag, String ArrayList Data
      *
      * @param dataTag
      * @param arrayList
      */
     public static void w(String dataTag, ArrayList<String> arrayList) {
         for (int i = 0; i < arrayList.size(); i++) {
-            Log.e(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
+            Log.w(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
                     + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList.get(i));
         }
     }
@@ -428,7 +466,7 @@ public class Logging {
      */
 
     /**
-     * Print Form : Class Name: Method, Line
+     * Print Form : Class Name: Method Name, Line
      */
     public static void e() {
         Log.e(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()), "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
@@ -436,7 +474,7 @@ public class Logging {
     }
 
     /**
-     * Print Form : Class Name: Method, Line, Comment
+     * Print Form : Class Name: Method Name, Line, Comment
      *
      * @param comment
      */
@@ -446,7 +484,19 @@ public class Logging {
     }
 
     /**
-     * Print Form : Class Name: Method, Line, Tag, String ArrayList Data
+     * Print Form : tag: Class Name , Method Name, Line, Comment
+     *
+     * @param comment
+     */
+    public static void e(String tag,String comment) {
+
+        Log.e(tag, "CLASS: " + getClassName(Thread.currentThread().getStackTrace()[3].getClassName()) +
+                ", METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
+                + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", COMMENT: " + comment);
+    }
+
+    /**
+     * Print Form : Class Name: Method Name, Line, Tag, String ArrayList Data
      *
      * @param dataTag
      * @param arrayList
@@ -471,7 +521,7 @@ public class Logging {
                 field.setAccessible(true);
                 String name = field.getName();
                 Object value = field.get(object);
-                Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                Log.e(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
                         "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name: " + name + ", Value: " + value);
             }
         } catch (Exception e) {
@@ -495,7 +545,7 @@ public class Logging {
                     field.setAccessible(true);
                     String name = field.getName();
                     Object value = field.get(object);
-                    Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                    Log.e(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
                             "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
                 }
             }

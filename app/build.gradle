@@ -5,7 +5,7 @@ publish {
     userOrg = 'woocheol'
     groupId = 'com.mrparkwc'
     artifactId = 'simplelog'
-    publishVersion = '0.9.6'
+    publishVersion = '0.9.7'
     desc = 'Simple Log'
     website = 'https://github.com/ParkWoocheol/SimpleLog'
 }
