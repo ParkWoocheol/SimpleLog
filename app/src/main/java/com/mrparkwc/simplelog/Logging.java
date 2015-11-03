@@ -68,30 +68,9 @@ public class Logging {
      * Print Form : Class Name : [Object Name], Variable Name, Value
      *
      * @param object
-     * @throws Exception
      */
-    public static void d(Object object) throws Exception {
-        Class<?> objClass = object.getClass();
-        Field[] fields = objClass.getDeclaredFields();
-        for (Field field : fields) {
-            field.setAccessible(true);
-            String name = field.getName();
-            Object value = field.get(object);
-            Log.d(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
-                    "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name: " + name + ", Value: " + value);
-        }
-    }
-
-    /**
-     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
-     *
-     * @param arrayList
-     * @throws Exception
-     */
-    public static void d(ArrayList<?> arrayList) throws Exception {
-        Object object;
-        for (int i = 0; i < arrayList.size(); i++) {
-            object = arrayList.get(i);
+    public static void d(Object object) {
+        try {
             Class<?> objClass = object.getClass();
             Field[] fields = objClass.getDeclaredFields();
             for (Field field : fields) {
@@ -99,8 +78,85 @@ public class Logging {
                 String name = field.getName();
                 Object value = field.get(object);
                 Log.d(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
-                        "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                        "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name: " + name + ", Value: " + value);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void d(ArrayList<?> arrayList) {
+        try {
+            Object object;
+            for (int i = 0; i < arrayList.size(); i++) {
+                object = arrayList.get(i);
+                Class<?> objClass = object.getClass();
+                Field[] fields = objClass.getDeclaredFields();
+                for (Field field : fields) {
+                    field.setAccessible(true);
+                    String name = field.getName();
+                    Object value = field.get(object);
+                    Log.d(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                            "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void d(ArrayList<?> arrayList, int index) {
+        try {
+            Object object;
+            object = arrayList.get(index);
+            Class<?> objClass = object.getClass();
+            Field[] fields = objClass.getDeclaredFields();
+            for (Field field : fields) {
+                field.setAccessible(true);
+                String name = field.getName();
+                Object value = field.get(object);
+                Log.d(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                        "[ " + object.getClass().getSimpleName() + " ][ " + index + " ], " + "Variable Name: " + name + ", Value: " + value);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void d(ArrayList<?> arrayList, int startIndex, int endIndex) {
+        try {
+            Object object;
+            for (int i = startIndex; i <= endIndex; i++) {
+                object = arrayList.get(i);
+                Class<?> objClass = object.getClass();
+                Field[] fields = objClass.getDeclaredFields();
+                for (Field field : fields) {
+                    field.setAccessible(true);
+                    String name = field.getName();
+                    Object value = field.get(object);
+                    Log.d(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                            "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -144,30 +200,9 @@ public class Logging {
      * Print Form : Class Name : [Object Name], Variable Name, Value
      *
      * @param object
-     * @throws Exception
      */
-    public static void i(Object object) throws Exception {
-        Class<?> objClass = object.getClass();
-        Field[] fields = objClass.getDeclaredFields();
-        for (Field field : fields) {
-            field.setAccessible(true);
-            String name = field.getName();
-            Object value = field.get(object);
-            Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
-                    "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name: " + name + ", Value: " + value);
-        }
-    }
-
-    /**
-     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
-     *
-     * @param arrayList
-     * @throws Exception
-     */
-    public static void i(ArrayList<?> arrayList) throws Exception {
-        Object object;
-        for (int i = 0; i < arrayList.size(); i++) {
-            object = arrayList.get(i);
+    public static void i(Object object) {
+        try {
             Class<?> objClass = object.getClass();
             Field[] fields = objClass.getDeclaredFields();
             for (Field field : fields) {
@@ -175,10 +210,87 @@ public class Logging {
                 String name = field.getName();
                 Object value = field.get(object);
                 Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
-                        "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                        "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name: " + name + ", Value: " + value);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void i(ArrayList<?> arrayList) {
+        try {
+            Object object;
+            for (int i = 0; i < arrayList.size(); i++) {
+                object = arrayList.get(i);
+                Class<?> objClass = object.getClass();
+                Field[] fields = objClass.getDeclaredFields();
+                for (Field field : fields) {
+                    field.setAccessible(true);
+                    String name = field.getName();
+                    Object value = field.get(object);
+                    Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                            "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void i(ArrayList<?> arrayList, int index) {
+        try {
+            Object object;
+            object = arrayList.get(index);
+            Class<?> objClass = object.getClass();
+            Field[] fields = objClass.getDeclaredFields();
+            for (Field field : fields) {
+                field.setAccessible(true);
+                String name = field.getName();
+                Object value = field.get(object);
+                Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                        "[ " + object.getClass().getSimpleName() + " ][ " + index + " ], " + "Variable Name: " + name + ", Value: " + value);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void i(ArrayList<?> arrayList, int startIndex, int endIndex) {
+        try {
+            Object object;
+            for (int i = startIndex; i <= endIndex; i++) {
+                object = arrayList.get(i);
+                Class<?> objClass = object.getClass();
+                Field[] fields = objClass.getDeclaredFields();
+                for (Field field : fields) {
+                    field.setAccessible(true);
+                    String name = field.getName();
+                    Object value = field.get(object);
+                    Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                            "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     /**
      * Log Warn
@@ -219,30 +331,9 @@ public class Logging {
      * Print Form : Class Name : [Object Name], Variable Name, Value
      *
      * @param object
-     * @throws Exception
      */
-    public static void w(Object object) throws Exception {
-        Class<?> objClass = object.getClass();
-        Field[] fields = objClass.getDeclaredFields();
-        for (Field field : fields) {
-            field.setAccessible(true);
-            String name = field.getName();
-            Object value = field.get(object);
-            Log.w(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
-                    "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name: " + name + ", Value: " + value);
-        }
-    }
-
-    /**
-     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
-     *
-     * @param arrayList
-     * @throws Exception
-     */
-    public static void w(ArrayList<?> arrayList) throws Exception {
-        Object object;
-        for (int i = 0; i < arrayList.size(); i++) {
-            object = arrayList.get(i);
+    public static void w(Object object) {
+        try {
             Class<?> objClass = object.getClass();
             Field[] fields = objClass.getDeclaredFields();
             for (Field field : fields) {
@@ -250,8 +341,84 @@ public class Logging {
                 String name = field.getName();
                 Object value = field.get(object);
                 Log.w(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
-                        "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                        "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name: " + name + ", Value: " + value);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void w(ArrayList<?> arrayList) {
+        try {
+            Object object;
+            for (int i = 0; i < arrayList.size(); i++) {
+                object = arrayList.get(i);
+                Class<?> objClass = object.getClass();
+                Field[] fields = objClass.getDeclaredFields();
+                for (Field field : fields) {
+                    field.setAccessible(true);
+                    String name = field.getName();
+                    Object value = field.get(object);
+                    Log.w(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                            "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void w(ArrayList<?> arrayList, int index) {
+        try {
+            Object object;
+            object = arrayList.get(index);
+            Class<?> objClass = object.getClass();
+            Field[] fields = objClass.getDeclaredFields();
+            for (Field field : fields) {
+                field.setAccessible(true);
+                String name = field.getName();
+                Object value = field.get(object);
+                Log.w(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                        "[ " + object.getClass().getSimpleName() + " ][ " + index + " ], " + "Variable Name: " + name + ", Value: " + value);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void w(ArrayList<?> arrayList, int startIndex, int endIndex) {
+        try {
+            Object object;
+            for (int i = startIndex; i <= endIndex; i++) {
+                object = arrayList.get(i);
+                Class<?> objClass = object.getClass();
+                Field[] fields = objClass.getDeclaredFields();
+                for (Field field : fields) {
+                    field.setAccessible(true);
+                    String name = field.getName();
+                    Object value = field.get(object);
+                    Log.w(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                            "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -295,30 +462,9 @@ public class Logging {
      * Print Form : Class Name : [Object Name], Variable Name, Value
      *
      * @param object
-     * @throws Exception
      */
-    public static void e(Object object) throws Exception {
-        Class<?> objClass = object.getClass();
-        Field[] fields = objClass.getDeclaredFields();
-        for (Field field : fields) {
-            field.setAccessible(true);
-            String name = field.getName();
-            Object value = field.get(object);
-            Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
-                    "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name: " + name + ", Value: " + value);
-        }
-    }
-
-    /**
-     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
-     *
-     * @param arrayList
-     * @throws Exception
-     */
-    public static void e(ArrayList<?> arrayList) throws Exception {
-        Object object;
-        for (int i = 0; i < arrayList.size(); i++) {
-            object = arrayList.get(i);
+    public static void e(Object object) {
+        try {
             Class<?> objClass = object.getClass();
             Field[] fields = objClass.getDeclaredFields();
             for (Field field : fields) {
@@ -326,8 +472,84 @@ public class Logging {
                 String name = field.getName();
                 Object value = field.get(object);
                 Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
-                        "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                        "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name: " + name + ", Value: " + value);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void e(ArrayList<?> arrayList) {
+        try {
+            Object object;
+            for (int i = 0; i < arrayList.size(); i++) {
+                object = arrayList.get(i);
+                Class<?> objClass = object.getClass();
+                Field[] fields = objClass.getDeclaredFields();
+                for (Field field : fields) {
+                    field.setAccessible(true);
+                    String name = field.getName();
+                    Object value = field.get(object);
+                    Log.i(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                            "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void e(ArrayList<?> arrayList, int index) {
+        try {
+            Object object;
+            object = arrayList.get(index);
+            Class<?> objClass = object.getClass();
+            Field[] fields = objClass.getDeclaredFields();
+            for (Field field : fields) {
+                field.setAccessible(true);
+                String name = field.getName();
+                Object value = field.get(object);
+                Log.e(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                        "[ " + object.getClass().getSimpleName() + " ][ " + index + " ], " + "Variable Name: " + name + ", Value: " + value);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+     *
+     * @param arrayList
+     */
+    public static void e(ArrayList<?> arrayList, int startIndex, int endIndex) {
+        try {
+            Object object;
+            for (int i = startIndex; i <= endIndex; i++) {
+                object = arrayList.get(i);
+                Class<?> objClass = object.getClass();
+                Field[] fields = objClass.getDeclaredFields();
+                for (Field field : fields) {
+                    field.setAccessible(true);
+                    String name = field.getName();
+                    Object value = field.get(object);
+                    Log.e(getClassName(Thread.currentThread().getStackTrace()[3].getClassName()),
+                            "[ " + object.getClass().getSimpleName() + " ][ " + i + " ], " + "Variable Name: " + name + ", Value: " + value);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
