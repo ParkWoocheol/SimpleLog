@@ -10,8 +10,9 @@ public class DemoActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Logging.i(); // Print Form : Class Name: Method, Line
-        Logging.i("Comment"); // Print Form : Class Name: Method, Line, Comment
+        Logging.i(); // Print Form : Class Name: Method Name, Line
+        Logging.i("Comment"); // Print Form : Class Name: Method Name, Line, Comment
+        Logging.i("Tag","Comment"); // Print Form : Tag : Class Name, Method Name, Line, Comment
         Logging.i(Object); // Print Form : Class Name : [Object Name], Variable Name, Value
         Logging.i(ArrayList<Object>); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
         Logging.i(ArrayList<Object>, int index); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
