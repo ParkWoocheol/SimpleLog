@@ -12,10 +12,10 @@ public class DemoActivity extends Activity {
 
         Logging.i(); // Print Form : Class Name: Method, Line
         Logging.i("Comment"); // Print Form : Class Name: Method, Line, Comment
-        try{
         Logging.i(Object); // Print Form : Class Name : [Object Name], Variable Name, Value
         Logging.i(ArrayList<Object>); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
-        }catch(Exception e){}
+        Logging.i(ArrayList<Object>, int index); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        Logging.i(ArrayList<Object>, int startIndex, int endIndex); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
         
         Logging.e();
         ...
@@ -33,13 +33,13 @@ Maven:
 <dependency>
   <groupId>com.mrparkwc</groupId>
   <artifactId>simplelog</artifactId>
-  <version>0.9.5</version>
+  <version>0.9.6</version>
   <type>aar</type>
 </dependency>
 ```
 Gradle:
 ```groovy
-compile 'com.mrparkwc:simplelog:0.9.5'
+compile 'com.mrparkwc:simplelog:0.9.6'
 ```
 Developed By
 ============
