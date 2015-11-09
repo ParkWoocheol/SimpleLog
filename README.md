@@ -14,9 +14,13 @@ public class DemoActivity extends Activity {
         Logging.i("Comment"); // Print Form : Class Name: Method Name, Line, Comment
         Logging.i("Tag","Comment"); // Print Form : Tag : Class Name, Method Name, Line, Comment
         Logging.i(Object); // Print Form : Class Name : [Object Name], Variable Name, Value
+        Logging.i(Object,"Comment");
         Logging.i(ArrayList<Object>); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        Logging.i(ArrayList<Object>,"Comment");
         Logging.i(ArrayList<Object>, int index); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        Logging.i(ArrayList<Object>, int index,"Comment");
         Logging.i(ArrayList<Object>, int startIndex, int endIndex); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        Logging.i(ArrayList<Object>, int startIndex, int endIndex,"Comment");
         
         Logging.e();
         ...
