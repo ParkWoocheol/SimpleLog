@@ -23,7 +23,10 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 /**
- * Created by ParkWoocheol on 2015-10-13.
+ * Developed by Park, Woocheol
+ *
+ * Email: admin@mrparkwc.com
+ * GitHub: https://github.com/ParkWoocheol
  */
 public class Logging {
 
@@ -77,7 +80,7 @@ public class Logging {
      */
     public static void d(String dataTag, ArrayList<String> arrayList) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.d(className, "<<-------------------------" + dataTag + "------------------------->> Size: " + arrayList.size());
+        Log.d(className, "<<------------------------- " + dataTag + " ------------------------->> Size: " + arrayList.size());
         for (int i = 0; i < arrayList.size(); i++) {
             Log.d(className, "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
                     + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList.get(i));
@@ -91,7 +94,14 @@ public class Logging {
      */
     public static void d(Object object) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.d(className, "<<-------------------------" + object.getClass().getSimpleName() + "------------------------->>");
+        Log.d(className, "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>");
+        print(DEBUG, className, object);
+    }
+
+    public static void d(Object object, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.d(className, "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>");
+        Log.d(className, "COMMENT: " + comment);
         print(DEBUG, className, object);
     }
 
@@ -102,7 +112,14 @@ public class Logging {
      */
     public static void d(ArrayList<?> arrayList) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.d(className, "<<-------------------------" + arrayList.get(0).getClass().getSimpleName() + "------------------------->> Size: " + arrayList.size());
+        Log.d(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size());
+        print(DEBUG, className, arrayList);
+    }
+
+    public static void d(ArrayList<?> arrayList, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.d(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size());
+        Log.d(className, "COMMENT: " + comment);
         print(DEBUG, className, arrayList);
     }
 
@@ -114,9 +131,17 @@ public class Logging {
      */
     public static void d(ArrayList<?> arrayList, int index) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.d(className, "<<-------------------------" + arrayList.get(index).getClass().getSimpleName() + "------------------------->> Index: " + index);
+        Log.d(className, "<<------------------------- " + arrayList.get(index).getClass().getSimpleName() + " ------------------------->> Index: " + index);
         print(DEBUG, className, arrayList, index);
     }
+
+    public static void d(ArrayList<?> arrayList, int index, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.d(className, "<<------------------------- " + arrayList.get(index).getClass().getSimpleName() + " ------------------------->> Index: " + index);
+        Log.d(className, "COMMENT: " + comment);
+        print(DEBUG, className, arrayList, index);
+    }
+
 
     /**
      * Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
@@ -125,9 +150,10 @@ public class Logging {
      * @param startIndex
      * @param endIndex
      */
-    public static void d(ArrayList<?> arrayList, int startIndex, int endIndex) {
+    public static void d(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.d(className, "<<-------------------------" + arrayList.get(0).getClass().getSimpleName() + "------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex);
+        Log.d(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex);
+        Log.d(className, "COMMENT: " + comment);
         print(DEBUG, className, arrayList, startIndex, endIndex);
     }
 
@@ -176,7 +202,7 @@ public class Logging {
      */
     public static void i(String dataTag, ArrayList<String> arrayList) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.i(className, "<<-------------------------" + dataTag + "------------------------->> Size: " + arrayList.size());
+        Log.i(className, "<<------------------------- " + dataTag + " ------------------------->> Size: " + arrayList.size());
         for (int i = 0; i < arrayList.size(); i++) {
             Log.i(className, "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
                     + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList.get(i));
@@ -190,7 +216,14 @@ public class Logging {
      */
     public static void i(Object object) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.i(className, "<<-------------------------" + object.getClass().getSimpleName() + "------------------------->>");
+        Log.i(className, "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>");
+        print(INFO, className, object);
+    }
+
+    public static void i(Object object, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.i(className, "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>");
+        Log.i(className, "COMMENT: " + comment);
         print(INFO, className, object);
     }
 
@@ -201,7 +234,14 @@ public class Logging {
      */
     public static void i(ArrayList<?> arrayList) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.i(className, "<<-------------------------" + arrayList.get(0).getClass().getSimpleName() + "------------------------->> Size: " + arrayList.size());
+        Log.i(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size());
+        print(INFO, className, arrayList);
+    }
+
+    public static void i(ArrayList<?> arrayList, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.i(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size());
+        Log.i(className, "COMMENT: " + comment);
         print(INFO, className, arrayList);
     }
 
@@ -213,7 +253,14 @@ public class Logging {
      */
     public static void i(ArrayList<?> arrayList, int index) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.i(className, "<<-------------------------" + arrayList.get(index).getClass().getSimpleName() + "------------------------->> Index: " + index);
+        Log.i(className, "<<------------------------- " + arrayList.get(index).getClass().getSimpleName() + " ------------------------->> Index: " + index);
+        print(INFO, className, arrayList, index);
+    }
+
+    public static void i(ArrayList<?> arrayList, int index, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.i(className, "<<------------------------- " + arrayList.get(index).getClass().getSimpleName() + " ------------------------->> Index: " + index);
+        Log.i(className, "COMMENT: " + comment);
         print(INFO, className, arrayList, index);
     }
 
@@ -226,10 +273,16 @@ public class Logging {
      */
     public static void i(ArrayList<?> arrayList, int startIndex, int endIndex) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.i(className, "<<-------------------------" + arrayList.get(0).getClass().getSimpleName() + "------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex);
+        Log.i(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex);
         print(INFO, className, arrayList, startIndex, endIndex);
     }
 
+    public static void i(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.i(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex);
+        Log.i(className, "COMMENT: " + comment);
+        print(INFO, className, arrayList, startIndex, endIndex);
+    }
 
     /**
      * Log Warn
@@ -274,7 +327,7 @@ public class Logging {
      */
     public static void w(String dataTag, ArrayList<String> arrayList) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.w(className, "<<-------------------------" + dataTag + "------------------------->> Size: " + arrayList.size());
+        Log.w(className, "<<------------------------- " + dataTag + " ------------------------->> Size: " + arrayList.size());
         for (int i = 0; i < arrayList.size(); i++) {
             Log.w(className, "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
                     + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList.get(i));
@@ -288,7 +341,14 @@ public class Logging {
      */
     public static void w(Object object) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.w(className, "<<-------------------------" + object.getClass().getSimpleName() + "------------------------->>");
+        Log.w(className, "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>");
+        print(WARN, className, object);
+    }
+
+    public static void w(Object object, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.w(className, "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>");
+        Log.w(className, "COMMENT: " + comment);
         print(WARN, className, object);
     }
 
@@ -299,7 +359,14 @@ public class Logging {
      */
     public static void w(ArrayList<?> arrayList) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.w(className, "<<-------------------------" + arrayList.get(0).getClass().getSimpleName() + "------------------------->> Size: " + arrayList.size());
+        Log.w(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size());
+        print(WARN, className, arrayList);
+    }
+
+    public static void w(ArrayList<?> arrayList, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.w(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size());
+        Log.w(className, "COMMENT: " + comment);
         print(WARN, className, arrayList);
     }
 
@@ -311,7 +378,14 @@ public class Logging {
      */
     public static void w(ArrayList<?> arrayList, int index) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.w(className, "<<-------------------------" + arrayList.get(index).getClass().getSimpleName() + "------------------------->> Index: " + index);
+        Log.w(className, "<<------------------------- " + arrayList.get(index).getClass().getSimpleName() + " ------------------------->> Index: " + index);
+        print(WARN, className, arrayList, index);
+    }
+
+    public static void w(ArrayList<?> arrayList, int index, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.w(className, "<<------------------------- " + arrayList.get(index).getClass().getSimpleName() + " ------------------------->> Index: " + index);
+        Log.w(className, "COMMENT: " + comment);
         print(WARN, className, arrayList, index);
     }
 
@@ -324,10 +398,16 @@ public class Logging {
      */
     public static void w(ArrayList<?> arrayList, int startIndex, int endIndex) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.w(className, "<<-------------------------" + arrayList.get(0).getClass().getSimpleName() + "------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex);
+        Log.w(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex);
         print(WARN, className, arrayList, startIndex, endIndex);
     }
 
+    public static void w(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.w(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex);
+        Log.w(className, "COMMENT: " + comment);
+        print(WARN, className, arrayList, startIndex, endIndex);
+    }
 
     /**
      * Log Error
@@ -372,7 +452,7 @@ public class Logging {
      */
     public static void e(String dataTag, ArrayList<String> arrayList) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.e(className, "<<-------------------------" + dataTag + "------------------------->> Size: " + arrayList.size());
+        Log.e(className, "<<------------------------- " + dataTag + " ------------------------->> Size: " + arrayList.size());
         for (int i = 0; i < arrayList.size(); i++) {
             Log.e(className, "METHOD: " + Thread.currentThread().getStackTrace()[3].getMethodName()
                     + ", LINE: " + Thread.currentThread().getStackTrace()[3].getLineNumber() + ", " + dataTag + " [" + i + "] :" + arrayList.get(i));
@@ -386,7 +466,14 @@ public class Logging {
      */
     public static void e(Object object) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.e(className, "<<-------------------------" + object.getClass().getSimpleName() + "------------------------->>");
+        Log.e(className, "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>");
+        print(ERROR, className, object);
+    }
+
+    public static void e(Object object, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.e(className, "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>");
+        Log.e(className, "COMMENT: " + comment);
         print(ERROR, className, object);
     }
 
@@ -397,7 +484,14 @@ public class Logging {
      */
     public static void e(ArrayList<?> arrayList) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.e(className, "<<-------------------------" + arrayList.get(0).getClass().getSimpleName() + "------------------------->> Size: " + arrayList.size());
+        Log.e(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size());
+        print(ERROR, className, arrayList);
+    }
+
+    public static void e(ArrayList<?> arrayList, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.e(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size());
+        Log.e(className, "COMMENT: " + comment);
         print(ERROR, className, arrayList);
     }
 
@@ -409,7 +503,14 @@ public class Logging {
      */
     public static void e(ArrayList<?> arrayList, int index) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.e(className, "<<-------------------------" + arrayList.get(index).getClass().getSimpleName() + "------------------------->> Index: " + index);
+        Log.e(className, "<<------------------------- " + arrayList.get(index).getClass().getSimpleName() + " ------------------------->> Index: " + index);
+        print(ERROR, className, arrayList, index);
+    }
+
+    public static void e(ArrayList<?> arrayList, int index, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.e(className, "<<------------------------- " + arrayList.get(index).getClass().getSimpleName() + " ------------------------->> Index: " + index);
+        Log.e(className, "COMMENT: " + comment);
         print(ERROR, className, arrayList, index);
     }
 
@@ -422,10 +523,16 @@ public class Logging {
      */
     public static void e(ArrayList<?> arrayList, int startIndex, int endIndex) {
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        Log.e(className, "<<-------------------------" + arrayList.get(0).getClass().getSimpleName() + "------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex);
+        Log.e(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex);
         print(ERROR, className, arrayList, startIndex, endIndex);
     }
 
+    public static void e(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
+        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+        Log.e(className, "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex);
+        Log.e(className, "COMMENT: " + comment);
+        print(ERROR, className, arrayList, startIndex, endIndex);
+    }
 
     /**
      * @param packageName
@@ -525,7 +632,7 @@ public class Logging {
     }
 
     private static void inputArrayIndexLog(int printType, String className, int index) {
-        String logMessage = "------------------------- Index: " + index + "-------------------------";
+        String logMessage = "------------------------- Index: " + index + " -------------------------";
         switch (printType) {
             case DEBUG:
                 Log.d(className, logMessage);
