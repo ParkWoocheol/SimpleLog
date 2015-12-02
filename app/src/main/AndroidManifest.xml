@@ -5,4 +5,5 @@
         android:allowBackup="true"
         android:supportsRtl="true" />
 
+
 </manifest>
