@@ -2,7 +2,7 @@
 
 You can use easily Log.
 
-JavaDoc - <http://mrparkwc.com/simplelog>
+JavaDoc: <http://mrparkwc.com/simplelog>
 
 ```java
 public class DemoActivity extends Activity {
