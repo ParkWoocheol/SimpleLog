@@ -6,6 +6,8 @@ JavaDoc
 ============
 <http://mrparkwc.com/simplelog>
 
+Example
+============
 ```java
 public class DemoActivity extends Activity {
 
