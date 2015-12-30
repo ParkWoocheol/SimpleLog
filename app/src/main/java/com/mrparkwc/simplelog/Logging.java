@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 /**
  * Developed by Park, Woocheol
- * <p/>
  * Email: admin@mrparkwc.com
  * GitHub: https://github.com/ParkWoocheol
  */
