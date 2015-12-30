@@ -61,7 +61,7 @@ public class Logging {
 
     /**
      * Print Form :
-     * tag : Class Name , Method Name, Line, Comment
+     * Tag : Class Name , Method Name, Line, Comment
      *
      * @param tag
      * @param comment
