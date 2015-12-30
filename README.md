@@ -15,17 +15,108 @@ public class DemoActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Logging.i(); // Print Form : Class Name: Method Name, Line
+       /**
+        * Print Form :
+        * Class Name : Method Name, Line
+        */
+        Logging.i(); 
+       /**
+        * Print Form :
+        * Class Name : Method Name, Line, Comment
+        */  
         Logging.i("Comment"); // Print Form : Class Name: Method Name, Line, Comment
+       /**
+        * Print Form :
+        * Tag : Class Name , Method Name, Line, Comment
+        */
         Logging.i("Tag","Comment"); // Print Form : Tag : Class Name, Method Name, Line, Comment
+       /**
+        * Print Form :
+        * Class Name : [Object Name], Variable Name, Value
+        */
         Logging.i(Object); // Print Form : Class Name : [Object Name], Variable Name, Value
+       /**
+        * Print Form :
+        * Tag : [Object Name], Variable Name, Value
+        */
+        Logging.i(Tag,Object); // Print Form : Tag : [Object Name], Variable Name, Value
+       /**
+        * Print Form :
+        * ClassName : [Object Name], Variable Name, Value
+        */
         Logging.i(Object,"Comment");
-        Logging.i(ArrayList<Object>); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
-        Logging.i(ArrayList<Object>,"Comment");
-        Logging.i(ArrayList<Object>, int index); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
-        Logging.i(ArrayList<Object>, int index,"Comment");
-        Logging.i(ArrayList<Object>, int startIndex, int endIndex); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
-        Logging.i(ArrayList<Object>, int startIndex, int endIndex,"Comment");
+       /**
+        * Print Form :
+        * Class Name
+        * Comment
+        * Tag : [Object Name], Variable Name, Value
+        */
+        Logging.i(Tag,Object,"Comment");
+       /**
+        * Print Form :
+        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(ArrayList<?>); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+       /**
+        * Print Form :
+        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(Tag,ArrayList<?>); // Print Form : Tag : [Object Name] [ArrayList Index], Variable Name, Value
+       /**
+        * Print Form :
+        * Class Name
+        * Comment
+        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(ArrayList<?>,"Comment");
+       /**
+        * Print Form :
+        * Class Name
+        * Comment
+        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(Tag,ArrayList<?>,"Comment");
+       /**
+        * Print Form :
+        * Class Name
+        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(ArrayList<?>, int index); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+       /**
+        * Print Form?
+        * Class Name, Index
+        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(Tag,ArrayList<?>, int index); // Print Form : Tag : [Object Name] [ArrayList Index], Variable Name, Value
+       /**
+        * Print Form :
+        * Class Name, Index
+        * Comment
+        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(ArrayList<?>, int index,"Comment");
+       /**
+        * Print Form :
+        * Class Name, Index
+        * Comment
+        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(Tag,ArrayList<?>, int index,"Comment");
+       /**
+        * Print Form :
+        * Class Name, Start Index,End Index
+        * Comment
+        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(ArrayList<?>, int startIndex, int endIndex); 
+       /**
+        * Print Form :
+        * Class Name, Start Index,End Index
+        * Comment
+        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(Tag,ArrayList<?>, int startIndex, int endIndex); 
+
         
         Logging.e();
         ...
@@ -43,13 +134,13 @@ Maven:
 <dependency>
   <groupId>com.mrparkwc</groupId>
   <artifactId>simplelog</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <type>aar</type>
 </dependency>
 ```
 Gradle:
 ```groovy
-compile 'com.mrparkwc:simplelog:1.0.4'
+compile 'com.mrparkwc:simplelog:1.0.5'
 ```
 Developed By
 ============
