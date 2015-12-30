@@ -24,22 +24,22 @@ public class DemoActivity extends Activity {
         * Print Form :
         * Class Name : Method Name, Line, Comment
         */  
-        Logging.i("Comment"); // Print Form : Class Name: Method Name, Line, Comment
+        Logging.i("Comment"); 
        /**
         * Print Form :
         * Tag : Class Name , Method Name, Line, Comment
         */
-        Logging.i("Tag","Comment"); // Print Form : Tag : Class Name, Method Name, Line, Comment
+        Logging.i("Tag","Comment"); 
        /**
         * Print Form :
         * Class Name : [Object Name], Variable Name, Value
         */
-        Logging.i(Object); // Print Form : Class Name : [Object Name], Variable Name, Value
+        Logging.i(Object); 
        /**
         * Print Form :
         * Tag : [Object Name], Variable Name, Value
         */
-        Logging.i(Tag,Object); // Print Form : Tag : [Object Name], Variable Name, Value
+        Logging.i(Tag,Object); 
        /**
         * Print Form :
         * ClassName : [Object Name], Variable Name, Value
@@ -56,12 +56,12 @@ public class DemoActivity extends Activity {
         * Print Form :
         * Class Name : [Object Name] [ArrayList Index], Variable Name, Value
         */
-        Logging.i(ArrayList<?>); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        Logging.i(ArrayList<?>); 
        /**
         * Print Form :
         * Tag : [Object Name] [ArrayList Index], Variable Name, Value
         */
-        Logging.i(Tag,ArrayList<?>); // Print Form : Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        Logging.i(Tag,ArrayList<?>); 
        /**
         * Print Form :
         * Class Name
@@ -81,13 +81,13 @@ public class DemoActivity extends Activity {
         * Class Name
         * Class Name : [Object Name] [ArrayList Index], Variable Name, Value
         */
-        Logging.i(ArrayList<?>, int index); // Print Form : Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        Logging.i(ArrayList<?>, int index); 
        /**
         * Print Form?
         * Class Name, Index
         * Tag : [Object Name] [ArrayList Index], Variable Name, Value
         */
-        Logging.i(Tag,ArrayList<?>, int index); // Print Form : Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        Logging.i(Tag,ArrayList<?>, int index); 
        /**
         * Print Form :
         * Class Name, Index
