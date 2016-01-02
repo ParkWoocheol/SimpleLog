@@ -83,7 +83,7 @@ public class DemoActivity extends Activity {
         */
         Logging.i(ArrayList<?>, int index); 
        /**
-        * Print Form?
+        * Print Form :
         * Class Name, Index
         * Tag : [Object Name] [ArrayList Index], Variable Name, Value
         */
