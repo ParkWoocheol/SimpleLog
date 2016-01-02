@@ -29,13 +29,15 @@ import java.util.ArrayList;
  */
 public class Print {
 
+    private static final int SINGLE_OBJECT = -1;
+
     /**
      * @param logSeparate
      * @param tag
      * @param object
      */
     public static void print(LogSeparate logSeparate, String tag, Object object) {
-        inputLogMessage(logSeparate, tag, object, -1);
+        inputLogMessage(logSeparate, tag, object, SINGLE_OBJECT);
     }
 
     /**
@@ -82,7 +84,6 @@ public class Print {
     }
 
     /**
-     *
      * @param logSeparate
      * @param tag
      * @param object
@@ -97,7 +98,7 @@ public class Print {
                 String name = field.getName();
                 Object value = field.get(object);
                 String logMessage;
-                if (index == -1) {
+                if (index == SINGLE_OBJECT) {
                     logMessage = "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name -> [ " + name + " ] Value -> [ " + value + " ]";
                 } else {
                     logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "Variable Name -> [ " + name + " ] Value -> [ " + value + " ]";
@@ -124,7 +125,6 @@ public class Print {
     }
 
     /**
-     *
      * @param logSeparate
      * @param className
      * @param index
