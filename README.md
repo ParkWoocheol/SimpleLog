@@ -105,18 +105,29 @@ public class DemoActivity extends Activity {
        /**
         * Print Form :
         * Class Name, Start Index,End Index
-        * Comment
         * Class Name : [Object Name] [ArrayList Index], Variable Name, Value
         */
         Logging.i(ArrayList<?>, int startIndex, int endIndex); 
        /**
         * Print Form :
         * Class Name, Start Index,End Index
-        * Comment
         * Tag : [Object Name] [ArrayList Index], Variable Name, Value
         */
         Logging.i(Tag,ArrayList<?>, int startIndex, int endIndex); 
-
+      /**
+        * Print Form :
+        * Class Name, Start Index,End Index
+        * Comment
+        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(ArrayList<?>, int startIndex, int endIndex,"Comment"); 
+       /**
+        * Print Form :
+        * Class Name, Start Index,End Index
+        * Comment
+        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        */
+        Logging.i(Tag,ArrayList<?>, int startIndex, int endIndex,"Comment"); 
         
         Logging.e();
         ...
