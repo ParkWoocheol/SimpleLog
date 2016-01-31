@@ -32,64 +32,64 @@ public class Print {
     private static final int SINGLE_OBJECT = -1;
 
     /**
-     * @param logSeparate
+     * @param logSeparator
      * @param tag
      * @param object
      */
-    public static void print(LogSeparate logSeparate, String tag, Object object) {
-        inputLogMessage(logSeparate, tag, object, SINGLE_OBJECT);
+    public static void print(LogSeparator logSeparator, String tag, Object object) {
+        inputLogMessage(logSeparator, tag, object, SINGLE_OBJECT);
     }
 
     /**
-     * @param logSeparate
+     * @param logSeparator
      * @param tag
      * @param arrayList
      */
-    public static void print(LogSeparate logSeparate, String tag, ArrayList<?> arrayList) {
+    public static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList) {
         Object object;
         for (int i = 0; i < arrayList.size(); i++) {
             object = arrayList.get(i);
-            inputArrayIndexLog(logSeparate, tag, i);
-            inputLogMessage(logSeparate, tag, object, i);
+            inputArrayIndexLog(logSeparator, tag, i);
+            inputLogMessage(logSeparator, tag, object, i);
         }
     }
 
     /**
-     * @param logSeparate
+     * @param logSeparator
      * @param tag
      * @param arrayList
      * @param index
      */
-    public static void print(LogSeparate logSeparate, String tag, ArrayList<?> arrayList, int index) {
+    public static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList, int index) {
         Object object;
         object = arrayList.get(index);
-        inputArrayIndexLog(logSeparate, tag, index);
-        inputLogMessage(logSeparate, tag, object, index);
+        inputArrayIndexLog(logSeparator, tag, index);
+        inputLogMessage(logSeparator, tag, object, index);
     }
 
     /**
-     * @param logSeparate
+     * @param logSeparator
      * @param className
      * @param arrayList
      * @param startIndex
      * @param endIndex
      */
-    public static void print(LogSeparate logSeparate, String className, ArrayList<?> arrayList, int startIndex, int endIndex) {
+    public static void print(LogSeparator logSeparator, String className, ArrayList<?> arrayList, int startIndex, int endIndex) {
         Object object;
         for (int i = startIndex; i <= endIndex; i++) {
             object = arrayList.get(i);
-            inputArrayIndexLog(logSeparate, className, i);
-            inputLogMessage(logSeparate, className, object, i);
+            inputArrayIndexLog(logSeparator, className, i);
+            inputLogMessage(logSeparator, className, object, i);
         }
     }
 
     /**
-     * @param logSeparate
+     * @param logSeparator
      * @param tag
      * @param object
      * @param index
      */
-    private static void inputLogMessage(LogSeparate logSeparate, String tag, Object object, int index) {
+    private static void inputLogMessage(LogSeparator logSeparator, String tag, Object object, int index) {
         try {
             Class<?> objClass = object.getClass();
             Field[] fields = objClass.getDeclaredFields();
@@ -103,7 +103,7 @@ public class Print {
                 } else {
                     logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "Variable Name -> [ " + name + " ] Value -> [ " + value + " ]";
                 }
-                switch (logSeparate) {
+                switch (logSeparator) {
                     case DEBUG:
                         Log.d(tag, logMessage);
                         break;
@@ -125,13 +125,13 @@ public class Print {
     }
 
     /**
-     * @param logSeparate
+     * @param logSeparator
      * @param className
      * @param index
      */
-    private static void inputArrayIndexLog(LogSeparate logSeparate, String className, int index) {
+    private static void inputArrayIndexLog(LogSeparator logSeparator, String className, int index) {
         String logMessage = "------------------------- Index: " + index + " -------------------------";
-        switch (logSeparate) {
+        switch (logSeparator) {
             case DEBUG:
                 Log.d(className, logMessage);
                 break;
