@@ -479,7 +479,7 @@ public abstract class BaseLogging {
      * @param index
      * @param comment
      */
-    public static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int index, String comment) {
+    static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int index, String comment) {
         String message = "METHOD: " + methodName
                 + ", LINE: " + lineNumber;
         String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
@@ -520,7 +520,7 @@ public abstract class BaseLogging {
      * @param index
      * @param comment
      */
-    public static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int index, String comment) {
+    static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int index, String comment) {
         String message = "CLASS: " + className +
                 ", METHOD: " + methodName
                 + ", LINE: " + lineNumber;
@@ -561,7 +561,7 @@ public abstract class BaseLogging {
      * @param startIndex
      * @param endIndex
      */
-    public static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int startIndex, int endIndex) {
+    static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int startIndex, int endIndex) {
         String message = "METHOD: " + methodName
                 + ", LINE: " + lineNumber;
         String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
@@ -598,7 +598,7 @@ public abstract class BaseLogging {
      * @param startIndex
      * @param endIndex
      */
-    public static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
+    static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
         String message = "CLASS: " + className +
                 ", METHOD: " + methodName
                 + ", LINE: " + lineNumber;
@@ -636,7 +636,7 @@ public abstract class BaseLogging {
      * @param endIndex
      * @param comment
      */
-    public static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
+    static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         String message = "METHOD: " + methodName
                 + ", LINE: " + lineNumber;
         String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
@@ -678,7 +678,7 @@ public abstract class BaseLogging {
      * @param endIndex
      * @param comment
      */
-    public static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
+    static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         String message = "CLASS: " + className +
                 ", METHOD: " + methodName
                 + ", LINE: " + lineNumber;
