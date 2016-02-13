@@ -90,37 +90,47 @@ public class Print {
      * @param index
      */
     private static void inputLogMessage(LogSeparator logSeparator, String tag, Object object, int index) {
-        try {
-            Class<?> objClass = object.getClass();
-            Field[] fields = objClass.getDeclaredFields();
-            for (Field field : fields) {
-                field.setAccessible(true);
-                String name = field.getName();
-                Object value = field.get(object);
-                String logMessage;
-                if (index == SINGLE_OBJECT) {
-                    logMessage = "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name -> [ " + name + " ] Value -> [ " + value + " ]";
-                } else {
-                    logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "Variable Name -> [ " + name + " ] Value -> [ " + value + " ]";
-                }
-                switch (logSeparator) {
-                    case DEBUG:
-                        Log.d(tag, logMessage);
-                        break;
-                    case INFO:
-                        Log.i(tag, logMessage);
-                        break;
-                    case WARN:
-                        Log.w(tag, logMessage);
-                        break;
-                    case ERROR:
-                        Log.e(tag, logMessage);
-                        break;
-                }
+        String logMessage = null;
 
+        if (object instanceof String) {
+            if (index == SINGLE_OBJECT) {
+                logMessage = " COMMENT: " + object.toString();
+            } else {
+                logMessage = "[" + index + "], COMMENT: " + object.toString();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            try {
+                Class<?> objClass = object.getClass();
+                Field[] fields = objClass.getDeclaredFields();
+                for (Field field : fields) {
+                    field.setAccessible(true);
+                    String name = field.getName();
+                    Object value = field.get(object);
+                    if (index == SINGLE_OBJECT) {
+                        logMessage = "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name -> [ " + name + " ] Value -> [ " + value + " ]";
+                    } else {
+                        logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "Variable Name -> [ " + name + " ] Value -> [ " + value + " ]";
+                    }
+
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        switch (logSeparator) {
+            case DEBUG:
+                Log.d(tag, logMessage);
+                break;
+            case INFO:
+                Log.i(tag, logMessage);
+                break;
+            case WARN:
+                Log.w(tag, logMessage);
+                break;
+            case ERROR:
+                Log.e(tag, logMessage);
+                break;
         }
     }
 
