@@ -27,9 +27,9 @@ public class DemoActivity extends Activity {
         Logging.i("Comment"); 
        /**
         * Print Form :
-        * Tag : Class Name , Method Name, Line, Comment
+        * TAG : Class Name , Method Name, Line, Comment
         */
-        Logging.i("Tag","Comment"); 
+        Logging.i("TAG","Comment"); 
        /**
         * Print Form :
         * Class Name : [Object Name], Variable Name, Value
@@ -37,9 +37,9 @@ public class DemoActivity extends Activity {
         Logging.i(Object); 
        /**
         * Print Form :
-        * Tag : [Object Name], Variable Name, Value
+        * TAG : [Object Name], Variable Name, Value
         */
-        Logging.i(Tag,Object); 
+        Logging.i(TAG,Object); 
        /**
         * Print Form :
         * ClassName : [Object Name], Variable Name, Value
@@ -49,9 +49,9 @@ public class DemoActivity extends Activity {
         * Print Form :
         * Class Name
         * Comment
-        * Tag : [Object Name], Variable Name, Value
+        * TAG : [Object Name], Variable Name, Value
         */
-        Logging.i(Tag,Object,"Comment");
+        Logging.i(TAG,Object,"Comment");
        /**
         * Print Form :
         * Class Name : [Object Name] [ArrayList Index], Variable Name, Value
@@ -59,9 +59,9 @@ public class DemoActivity extends Activity {
         Logging.i(ArrayList<?>); 
        /**
         * Print Form :
-        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        * TAG : [Object Name] [ArrayList Index], Variable Name, Value
         */
-        Logging.i(Tag,ArrayList<?>); 
+        Logging.i(TAG,ArrayList<?>); 
        /**
         * Print Form :
         * Class Name
@@ -73,9 +73,9 @@ public class DemoActivity extends Activity {
         * Print Form :
         * Class Name
         * Comment
-        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        * TAG : [Object Name] [ArrayList Index], Variable Name, Value
         */
-        Logging.i(Tag,ArrayList<?>,"Comment");
+        Logging.i(TAG,ArrayList<?>,"Comment");
        /**
         * Print Form :
         * Class Name
@@ -85,9 +85,9 @@ public class DemoActivity extends Activity {
        /**
         * Print Form :
         * Class Name, Index
-        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        * TAG : [Object Name] [ArrayList Index], Variable Name, Value
         */
-        Logging.i(Tag,ArrayList<?>, int index); 
+        Logging.i(TAG,ArrayList<?>, int index); 
        /**
         * Print Form :
         * Class Name, Index
@@ -99,9 +99,9 @@ public class DemoActivity extends Activity {
         * Print Form :
         * Class Name, Index
         * Comment
-        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        * TAG : [Object Name] [ArrayList Index], Variable Name, Value
         */
-        Logging.i(Tag,ArrayList<?>, int index,"Comment");
+        Logging.i(TAG,ArrayList<?>, int index,"Comment");
        /**
         * Print Form :
         * Class Name, Start Index,End Index
@@ -111,9 +111,9 @@ public class DemoActivity extends Activity {
        /**
         * Print Form :
         * Class Name, Start Index,End Index
-        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        * TAG : [Object Name] [ArrayList Index], Variable Name, Value
         */
-        Logging.i(Tag,ArrayList<?>, int startIndex, int endIndex); 
+        Logging.i(TAG,ArrayList<?>, int startIndex, int endIndex); 
       /**
         * Print Form :
         * Class Name, Start Index,End Index
@@ -125,9 +125,9 @@ public class DemoActivity extends Activity {
         * Print Form :
         * Class Name, Start Index,End Index
         * Comment
-        * Tag : [Object Name] [ArrayList Index], Variable Name, Value
+        * TAG : [Object Name] [ArrayList Index], Variable Name, Value
         */
-        Logging.i(Tag,ArrayList<?>, int startIndex, int endIndex,"Comment"); 
+        Logging.i(TAG,ArrayList<?>, int startIndex, int endIndex,"Comment"); 
         
         Logging.e();
         ...
