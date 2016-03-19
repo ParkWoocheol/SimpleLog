@@ -29,6 +29,7 @@ import java.util.ArrayList;
 public abstract class BaseLogging {
 
     private static final String NULL_MESSAGE = "Target is Null Point.";
+    private static final String EMPTY_MESSAGE = "Target is Empty List.";
 
     /**
      * @param packageName
@@ -288,6 +289,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "METHOD: " + methodName
                     + ", LINE: " + lineNumber;
@@ -324,6 +327,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "CLASS: " + className +
                     ", METHOD: " + methodName
@@ -363,6 +368,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, String comment) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "METHOD: " + methodName
                     + ", LINE: " + lineNumber;
@@ -407,6 +414,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, String comment) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "CLASS: " + className +
                     ", METHOD: " + methodName
@@ -450,6 +459,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int index) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "METHOD: " + methodName
                     + ", LINE: " + lineNumber;
@@ -489,6 +500,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int index) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "CLASS: " + className +
                     ", METHOD: " + methodName
@@ -529,6 +542,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int index, String comment) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "METHOD: " + methodName
                     + ", LINE: " + lineNumber;
@@ -574,6 +589,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int index, String comment) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "CLASS: " + className +
                     ", METHOD: " + methodName
@@ -619,6 +636,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "METHOD: " + methodName
                     + ", LINE: " + lineNumber;
@@ -660,6 +679,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "CLASS: " + className +
                     ", METHOD: " + methodName
@@ -702,6 +723,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "METHOD: " + methodName
                     + ", LINE: " + lineNumber;
@@ -748,6 +771,8 @@ public abstract class BaseLogging {
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isNull(arrayList)) {
             seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else if (arrayList.isEmpty()) {
+            seperate(logSeparator, className, methodName, lineNumber, EMPTY_MESSAGE);
         } else {
             String message = "CLASS: " + className +
                     ", METHOD: " + methodName
