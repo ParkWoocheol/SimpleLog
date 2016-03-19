@@ -28,6 +28,7 @@ import java.util.ArrayList;
  */
 public abstract class BaseLogging {
 
+    private static final String NULL_MESSAGE = "Target is Null Point.";
 
     /**
      * @param packageName
@@ -66,6 +67,9 @@ public abstract class BaseLogging {
      * @param comment
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String comment) {
+        if (isNull(comment)) {
+            comment = NULL_MESSAGE;
+        }
         String message = "METHOD: " + methodName
                 + ", LINE: " + lineNumber + ", COMMENT: " + comment;
         switch (logSeparator) {
@@ -91,7 +95,10 @@ public abstract class BaseLogging {
      * @param tag
      * @param comment
      */
-    static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber,String tag,  String comment) {
+    static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, String comment) {
+        if (isNull(comment)) {
+            comment = NULL_MESSAGE;
+        }
         String message = "CLASS: " + className +
                 ", METHOD: " + methodName
                 + ", LINE: " + lineNumber + ", COMMENT: " + comment;
@@ -118,29 +125,33 @@ public abstract class BaseLogging {
      * @param object
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, Object object) {
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
-        switch (logSeparator) {
+        if (isNull(object)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
+            switch (logSeparator) {
 
-            case DEBUG:
-                Log.d(className, message);
-                Log.d(className, objectInformationMessage);
-                break;
-            case INFO:
-                Log.i(className, message);
-                Log.i(className, objectInformationMessage);
-                break;
-            case ERROR:
-                Log.e(className, message);
-                Log.e(className, objectInformationMessage);
-                break;
-            case WARN:
-                Log.w(className, message);
-                Log.w(className, objectInformationMessage);
-                break;
+                case DEBUG:
+                    Log.d(className, message);
+                    Log.d(className, objectInformationMessage);
+                    break;
+                case INFO:
+                    Log.i(className, message);
+                    Log.i(className, objectInformationMessage);
+                    break;
+                case ERROR:
+                    Log.e(className, message);
+                    Log.e(className, objectInformationMessage);
+                    break;
+                case WARN:
+                    Log.w(className, message);
+                    Log.w(className, objectInformationMessage);
+                    break;
+            }
+            Print.print(logSeparator, className, object);
         }
-        Print.print(logSeparator, className, object);
     }
 
     /**
@@ -151,29 +162,33 @@ public abstract class BaseLogging {
      * @param object
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, Object object) {
-        String message = "CLASS: " + className +
-                ", METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(tag, message);
-                Log.d(tag, objectInformationMessage);
-                break;
-            case INFO:
-                Log.i(tag, message);
-                Log.i(tag, objectInformationMessage);
-                break;
-            case ERROR:
-                Log.e(tag, message);
-                Log.e(tag, objectInformationMessage);
-                break;
-            case WARN:
-                Log.w(tag, message);
-                Log.w(tag, objectInformationMessage);
-                break;
+        if (isNull(object)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "CLASS: " + className +
+                    ", METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(tag, message);
+                    Log.d(tag, objectInformationMessage);
+                    break;
+                case INFO:
+                    Log.i(tag, message);
+                    Log.i(tag, objectInformationMessage);
+                    break;
+                case ERROR:
+                    Log.e(tag, message);
+                    Log.e(tag, objectInformationMessage);
+                    break;
+                case WARN:
+                    Log.w(tag, message);
+                    Log.w(tag, objectInformationMessage);
+                    break;
+            }
+            Print.print(logSeparator, tag, object);
         }
-        Print.print(logSeparator, tag, object);
     }
 
     /**
@@ -186,33 +201,37 @@ public abstract class BaseLogging {
      * @param comment
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, Object object, String comment) {
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
-        String commentMessage = "COMMENT: " + comment;
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(className, message);
-                Log.d(className, objectInformationMessage);
-                Log.d(className, commentMessage);
-                break;
-            case INFO:
-                Log.i(className, message);
-                Log.i(className, objectInformationMessage);
-                Log.i(className, commentMessage);
-                break;
-            case ERROR:
-                Log.e(className, message);
-                Log.e(className, objectInformationMessage);
-                Log.e(className, commentMessage);
-                break;
-            case WARN:
-                Log.w(className, message);
-                Log.w(className, objectInformationMessage);
-                Log.w(className, commentMessage);
-                break;
+        if (isNull(object)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
+            String commentMessage = "COMMENT: " + comment;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(className, message);
+                    Log.d(className, objectInformationMessage);
+                    Log.d(className, commentMessage);
+                    break;
+                case INFO:
+                    Log.i(className, message);
+                    Log.i(className, objectInformationMessage);
+                    Log.i(className, commentMessage);
+                    break;
+                case ERROR:
+                    Log.e(className, message);
+                    Log.e(className, objectInformationMessage);
+                    Log.e(className, commentMessage);
+                    break;
+                case WARN:
+                    Log.w(className, message);
+                    Log.w(className, objectInformationMessage);
+                    Log.w(className, commentMessage);
+                    break;
+            }
+            Print.print(logSeparator, className, object);
         }
-        Print.print(logSeparator, className, object);
     }
 
     /**
@@ -226,34 +245,38 @@ public abstract class BaseLogging {
      * @param comment
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, Object object, String comment) {
-        String message = "CLASS: " + className +
-                ", METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
-        String commentMessage = "COMMENT: " + comment;
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(tag, message);
-                Log.d(tag, objectInformationMessage);
-                Log.d(tag, commentMessage);
-                break;
-            case INFO:
-                Log.i(tag, message);
-                Log.i(tag, objectInformationMessage);
-                Log.i(tag, commentMessage);
-                break;
-            case ERROR:
-                Log.e(tag, message);
-                Log.e(tag, objectInformationMessage);
-                Log.e(tag, commentMessage);
-                break;
-            case WARN:
-                Log.w(tag, message);
-                Log.w(tag, objectInformationMessage);
-                Log.w(tag, commentMessage);
-                break;
+        if (isNull(object)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "CLASS: " + className +
+                    ", METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
+            String commentMessage = "COMMENT: " + comment;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(tag, message);
+                    Log.d(tag, objectInformationMessage);
+                    Log.d(tag, commentMessage);
+                    break;
+                case INFO:
+                    Log.i(tag, message);
+                    Log.i(tag, objectInformationMessage);
+                    Log.i(tag, commentMessage);
+                    break;
+                case ERROR:
+                    Log.e(tag, message);
+                    Log.e(tag, objectInformationMessage);
+                    Log.e(tag, commentMessage);
+                    break;
+                case WARN:
+                    Log.w(tag, message);
+                    Log.w(tag, objectInformationMessage);
+                    Log.w(tag, commentMessage);
+                    break;
+            }
+            Print.print(logSeparator, tag, object);
         }
-        Print.print(logSeparator, tag, object);
     }
 
     /**
@@ -263,28 +286,32 @@ public abstract class BaseLogging {
      * @param arrayList
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList) {
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(className, message);
-                Log.d(className, objectInformationMessage);
-                break;
-            case INFO:
-                Log.i(className, message);
-                Log.i(className, objectInformationMessage);
-                break;
-            case ERROR:
-                Log.e(className, message);
-                Log.e(className, objectInformationMessage);
-                break;
-            case WARN:
-                Log.w(className, message);
-                Log.w(className, objectInformationMessage);
-                break;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(className, message);
+                    Log.d(className, objectInformationMessage);
+                    break;
+                case INFO:
+                    Log.i(className, message);
+                    Log.i(className, objectInformationMessage);
+                    break;
+                case ERROR:
+                    Log.e(className, message);
+                    Log.e(className, objectInformationMessage);
+                    break;
+                case WARN:
+                    Log.w(className, message);
+                    Log.w(className, objectInformationMessage);
+                    break;
+            }
+            Print.print(logSeparator, className, arrayList);
         }
-        Print.print(logSeparator, className, arrayList);
     }
 
     /**
@@ -295,29 +322,33 @@ public abstract class BaseLogging {
      * @param arrayList
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList) {
-        String message = "CLASS: " + className +
-                ", METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(tag, message);
-                Log.d(tag, objectInformationMessage);
-                break;
-            case INFO:
-                Log.i(tag, message);
-                Log.i(tag, objectInformationMessage);
-                break;
-            case ERROR:
-                Log.e(tag, message);
-                Log.e(tag, objectInformationMessage);
-                break;
-            case WARN:
-                Log.w(tag, message);
-                Log.w(tag, objectInformationMessage);
-                break;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "CLASS: " + className +
+                    ", METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(tag, message);
+                    Log.d(tag, objectInformationMessage);
+                    break;
+                case INFO:
+                    Log.i(tag, message);
+                    Log.i(tag, objectInformationMessage);
+                    break;
+                case ERROR:
+                    Log.e(tag, message);
+                    Log.e(tag, objectInformationMessage);
+                    break;
+                case WARN:
+                    Log.w(tag, message);
+                    Log.w(tag, objectInformationMessage);
+                    break;
+            }
+            Print.print(logSeparator, tag, arrayList);
         }
-        Print.print(logSeparator, tag, arrayList);
     }
 
     /**
@@ -330,33 +361,37 @@ public abstract class BaseLogging {
      * @param comment
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, String comment) {
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
-        String commentMessage = "COMMENT: " + comment;
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(className, message);
-                Log.d(className, objectInformationMessage);
-                Log.d(className, commentMessage);
-                break;
-            case INFO:
-                Log.i(className, message);
-                Log.i(className, objectInformationMessage);
-                Log.i(className, commentMessage);
-                break;
-            case ERROR:
-                Log.e(className, message);
-                Log.e(className, objectInformationMessage);
-                Log.e(className, commentMessage);
-                break;
-            case WARN:
-                Log.w(className, message);
-                Log.w(className, objectInformationMessage);
-                Log.w(className, commentMessage);
-                break;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
+            String commentMessage = "COMMENT: " + comment;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(className, message);
+                    Log.d(className, objectInformationMessage);
+                    Log.d(className, commentMessage);
+                    break;
+                case INFO:
+                    Log.i(className, message);
+                    Log.i(className, objectInformationMessage);
+                    Log.i(className, commentMessage);
+                    break;
+                case ERROR:
+                    Log.e(className, message);
+                    Log.e(className, objectInformationMessage);
+                    Log.e(className, commentMessage);
+                    break;
+                case WARN:
+                    Log.w(className, message);
+                    Log.w(className, objectInformationMessage);
+                    Log.w(className, commentMessage);
+                    break;
+            }
+            Print.print(logSeparator, className, arrayList);
         }
-        Print.print(logSeparator, className, arrayList);
     }
 
     /**
@@ -370,34 +405,38 @@ public abstract class BaseLogging {
      * @param comment
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, String comment) {
-        String message = "CLASS: " + className +
-                ", METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
-        String commentMessage = "COMMENT: " + comment;
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(tag, message);
-                Log.d(tag, objectInformationMessage);
-                Log.d(tag, commentMessage);
-                break;
-            case INFO:
-                Log.i(tag, message);
-                Log.i(tag, objectInformationMessage);
-                Log.i(tag, commentMessage);
-                break;
-            case ERROR:
-                Log.e(tag, message);
-                Log.e(tag, objectInformationMessage);
-                Log.e(tag, commentMessage);
-                break;
-            case WARN:
-                Log.w(tag, message);
-                Log.w(tag, objectInformationMessage);
-                Log.w(tag, commentMessage);
-                break;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "CLASS: " + className +
+                    ", METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
+            String commentMessage = "COMMENT: " + comment;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(tag, message);
+                    Log.d(tag, objectInformationMessage);
+                    Log.d(tag, commentMessage);
+                    break;
+                case INFO:
+                    Log.i(tag, message);
+                    Log.i(tag, objectInformationMessage);
+                    Log.i(tag, commentMessage);
+                    break;
+                case ERROR:
+                    Log.e(tag, message);
+                    Log.e(tag, objectInformationMessage);
+                    Log.e(tag, commentMessage);
+                    break;
+                case WARN:
+                    Log.w(tag, message);
+                    Log.w(tag, objectInformationMessage);
+                    Log.w(tag, commentMessage);
+                    break;
+            }
+            Print.print(logSeparator, tag, arrayList);
         }
-        Print.print(logSeparator, tag, arrayList);
     }
 
     /**
@@ -409,29 +448,33 @@ public abstract class BaseLogging {
      * @param index
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int index) {
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
 
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(className, message);
-                Log.d(className, objectInformationMessage);
-                break;
-            case INFO:
-                Log.i(className, message);
-                Log.i(className, objectInformationMessage);
-                break;
-            case ERROR:
-                Log.e(className, message);
-                Log.e(className, objectInformationMessage);
-                break;
-            case WARN:
-                Log.w(className, message);
-                Log.w(className, objectInformationMessage);
-                break;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(className, message);
+                    Log.d(className, objectInformationMessage);
+                    break;
+                case INFO:
+                    Log.i(className, message);
+                    Log.i(className, objectInformationMessage);
+                    break;
+                case ERROR:
+                    Log.e(className, message);
+                    Log.e(className, objectInformationMessage);
+                    break;
+                case WARN:
+                    Log.w(className, message);
+                    Log.w(className, objectInformationMessage);
+                    break;
+            }
+            Print.print(logSeparator, className, arrayList, index);
         }
-        Print.print(logSeparator, className, arrayList, index);
     }
 
     /**
@@ -444,29 +487,33 @@ public abstract class BaseLogging {
      * @param index
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int index) {
-        String message = "CLASS: " + className +
-                ", METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(tag, message);
-                Log.d(tag, objectInformationMessage);
-                break;
-            case INFO:
-                Log.i(tag, message);
-                Log.i(tag, objectInformationMessage);
-                break;
-            case ERROR:
-                Log.e(tag, message);
-                Log.e(tag, objectInformationMessage);
-                break;
-            case WARN:
-                Log.w(tag, message);
-                Log.w(tag, objectInformationMessage);
-                break;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "CLASS: " + className +
+                    ", METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(tag, message);
+                    Log.d(tag, objectInformationMessage);
+                    break;
+                case INFO:
+                    Log.i(tag, message);
+                    Log.i(tag, objectInformationMessage);
+                    break;
+                case ERROR:
+                    Log.e(tag, message);
+                    Log.e(tag, objectInformationMessage);
+                    break;
+                case WARN:
+                    Log.w(tag, message);
+                    Log.w(tag, objectInformationMessage);
+                    break;
+            }
+            Print.print(logSeparator, tag, arrayList, index);
         }
-        Print.print(logSeparator, tag, arrayList, index);
     }
 
     /**
@@ -480,33 +527,37 @@ public abstract class BaseLogging {
      * @param comment
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int index, String comment) {
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
-        String commentMessage = "COMMENT: " + comment;
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(className, message);
-                Log.d(className, objectInformationMessage);
-                Log.d(className, commentMessage);
-                break;
-            case INFO:
-                Log.i(className, message);
-                Log.i(className, objectInformationMessage);
-                Log.i(className, commentMessage);
-                break;
-            case ERROR:
-                Log.e(className, message);
-                Log.e(className, objectInformationMessage);
-                Log.e(className, commentMessage);
-                break;
-            case WARN:
-                Log.w(className, message);
-                Log.w(className, objectInformationMessage);
-                Log.w(className, commentMessage);
-                break;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
+            String commentMessage = "COMMENT: " + comment;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(className, message);
+                    Log.d(className, objectInformationMessage);
+                    Log.d(className, commentMessage);
+                    break;
+                case INFO:
+                    Log.i(className, message);
+                    Log.i(className, objectInformationMessage);
+                    Log.i(className, commentMessage);
+                    break;
+                case ERROR:
+                    Log.e(className, message);
+                    Log.e(className, objectInformationMessage);
+                    Log.e(className, commentMessage);
+                    break;
+                case WARN:
+                    Log.w(className, message);
+                    Log.w(className, objectInformationMessage);
+                    Log.w(className, commentMessage);
+                    break;
+            }
+            Print.print(logSeparator, className, arrayList, index);
         }
-        Print.print(logSeparator, className, arrayList, index);
     }
 
     /**
@@ -521,34 +572,38 @@ public abstract class BaseLogging {
      * @param comment
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int index, String comment) {
-        String message = "CLASS: " + className +
-                ", METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
-        String commentMessage = "COMMENT: " + comment;
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(tag, message);
-                Log.d(tag, objectInformationMessage);
-                Log.d(tag, commentMessage);
-                break;
-            case INFO:
-                Log.i(tag, message);
-                Log.i(tag, objectInformationMessage);
-                Log.i(tag, commentMessage);
-                break;
-            case ERROR:
-                Log.e(tag, message);
-                Log.e(tag, objectInformationMessage);
-                Log.e(tag, commentMessage);
-                break;
-            case WARN:
-                Log.w(tag, message);
-                Log.w(tag, objectInformationMessage);
-                Log.w(tag, commentMessage);
-                break;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "CLASS: " + className +
+                    ", METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
+            String commentMessage = "COMMENT: " + comment;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(tag, message);
+                    Log.d(tag, objectInformationMessage);
+                    Log.d(tag, commentMessage);
+                    break;
+                case INFO:
+                    Log.i(tag, message);
+                    Log.i(tag, objectInformationMessage);
+                    Log.i(tag, commentMessage);
+                    break;
+                case ERROR:
+                    Log.e(tag, message);
+                    Log.e(tag, objectInformationMessage);
+                    Log.e(tag, commentMessage);
+                    break;
+                case WARN:
+                    Log.w(tag, message);
+                    Log.w(tag, objectInformationMessage);
+                    Log.w(tag, commentMessage);
+                    break;
+            }
+            Print.print(logSeparator, tag, arrayList, index);
         }
-        Print.print(logSeparator, tag, arrayList, index);
     }
 
     /**
@@ -562,28 +617,32 @@ public abstract class BaseLogging {
      * @param endIndex
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int startIndex, int endIndex) {
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(className, message);
-                Log.d(className, objectInformationMessage);
-                break;
-            case INFO:
-                Log.i(className, message);
-                Log.i(className, objectInformationMessage);
-                break;
-            case ERROR:
-                Log.e(className, message);
-                Log.e(className, objectInformationMessage);
-                break;
-            case WARN:
-                Log.w(className, message);
-                Log.w(className, objectInformationMessage);
-                break;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(className, message);
+                    Log.d(className, objectInformationMessage);
+                    break;
+                case INFO:
+                    Log.i(className, message);
+                    Log.i(className, objectInformationMessage);
+                    break;
+                case ERROR:
+                    Log.e(className, message);
+                    Log.e(className, objectInformationMessage);
+                    break;
+                case WARN:
+                    Log.w(className, message);
+                    Log.w(className, objectInformationMessage);
+                    break;
+            }
+            Print.print(logSeparator, className, arrayList, startIndex, endIndex);
         }
-        Print.print(logSeparator, className, arrayList, startIndex, endIndex);
     }
 
 
@@ -599,29 +658,33 @@ public abstract class BaseLogging {
      * @param endIndex
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
-        String message = "CLASS: " + className +
-                ", METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(tag, message);
-                Log.d(tag, objectInformationMessage);
-                break;
-            case INFO:
-                Log.i(tag, message);
-                Log.i(tag, objectInformationMessage);
-                break;
-            case ERROR:
-                Log.e(tag, message);
-                Log.e(tag, objectInformationMessage);
-                break;
-            case WARN:
-                Log.w(tag, message);
-                Log.w(tag, objectInformationMessage);
-                break;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "CLASS: " + className +
+                    ", METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(tag, message);
+                    Log.d(tag, objectInformationMessage);
+                    break;
+                case INFO:
+                    Log.i(tag, message);
+                    Log.i(tag, objectInformationMessage);
+                    break;
+                case ERROR:
+                    Log.e(tag, message);
+                    Log.e(tag, objectInformationMessage);
+                    break;
+                case WARN:
+                    Log.w(tag, message);
+                    Log.w(tag, objectInformationMessage);
+                    break;
+            }
+            Print.print(logSeparator, className, arrayList, startIndex, endIndex);
         }
-        Print.print(logSeparator, className, arrayList, startIndex, endIndex);
     }
 
 
@@ -637,33 +700,37 @@ public abstract class BaseLogging {
      * @param comment
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
-        String commentMessage = "COMMENT: " + comment;
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(className, message);
-                Log.d(className, objectInformationMessage);
-                Log.d(className, commentMessage);
-                break;
-            case INFO:
-                Log.i(className, message);
-                Log.i(className, objectInformationMessage);
-                Log.i(className, commentMessage);
-                break;
-            case ERROR:
-                Log.e(className, message);
-                Log.e(className, objectInformationMessage);
-                Log.e(className, commentMessage);
-                break;
-            case WARN:
-                Log.w(className, message);
-                Log.w(className, objectInformationMessage);
-                Log.w(className, commentMessage);
-                break;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
+            String commentMessage = "COMMENT: " + comment;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(className, message);
+                    Log.d(className, objectInformationMessage);
+                    Log.d(className, commentMessage);
+                    break;
+                case INFO:
+                    Log.i(className, message);
+                    Log.i(className, objectInformationMessage);
+                    Log.i(className, commentMessage);
+                    break;
+                case ERROR:
+                    Log.e(className, message);
+                    Log.e(className, objectInformationMessage);
+                    Log.e(className, commentMessage);
+                    break;
+                case WARN:
+                    Log.w(className, message);
+                    Log.w(className, objectInformationMessage);
+                    Log.w(className, commentMessage);
+                    break;
+            }
+            Print.print(logSeparator, className, arrayList, startIndex, endIndex);
         }
-        Print.print(logSeparator, className, arrayList, startIndex, endIndex);
     }
 
     /**
@@ -679,33 +746,41 @@ public abstract class BaseLogging {
      * @param comment
      */
     static void seperate(LogSeparator logSeparator, String className, String methodName, int lineNumber, String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
-        String message = "CLASS: " + className +
-                ", METHOD: " + methodName
-                + ", LINE: " + lineNumber;
-        String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
-        String commentMessage = "COMMENT: " + comment;
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(tag, message);
-                Log.d(tag, objectInformationMessage);
-                Log.d(tag, commentMessage);
-                break;
-            case INFO:
-                Log.i(tag, message);
-                Log.i(tag, objectInformationMessage);
-                Log.i(tag, commentMessage);
-                break;
-            case ERROR:
-                Log.e(tag,message);
-                Log.e(tag, objectInformationMessage);
-                Log.e(tag, commentMessage);
-                break;
-            case WARN:
-                Log.w(tag, message);
-                Log.w(tag, objectInformationMessage);
-                Log.w(tag, commentMessage);
-                break;
+        if (isNull(arrayList)) {
+            seperate(logSeparator, className, methodName, lineNumber, NULL_MESSAGE);
+        } else {
+            String message = "CLASS: " + className +
+                    ", METHOD: " + methodName
+                    + ", LINE: " + lineNumber;
+            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
+            String commentMessage = "COMMENT: " + comment;
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(tag, message);
+                    Log.d(tag, objectInformationMessage);
+                    Log.d(tag, commentMessage);
+                    break;
+                case INFO:
+                    Log.i(tag, message);
+                    Log.i(tag, objectInformationMessage);
+                    Log.i(tag, commentMessage);
+                    break;
+                case ERROR:
+                    Log.e(tag, message);
+                    Log.e(tag, objectInformationMessage);
+                    Log.e(tag, commentMessage);
+                    break;
+                case WARN:
+                    Log.w(tag, message);
+                    Log.w(tag, objectInformationMessage);
+                    Log.w(tag, commentMessage);
+                    break;
+            }
+            Print.print(logSeparator, tag, arrayList, startIndex, endIndex);
         }
-        Print.print(logSeparator, tag, arrayList, startIndex, endIndex);
+    }
+
+    private static boolean isNull(Object object) {
+        return (object == null);
     }
 }
