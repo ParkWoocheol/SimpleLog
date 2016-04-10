@@ -36,7 +36,7 @@ public class Print {
      * @param tag
      * @param object
      */
-    public static void print(LogSeparator logSeparator, String tag, Object object) {
+    static void print(LogSeparator logSeparator, String tag, Object object) {
         inputLogMessage(logSeparator, tag, object, SINGLE_OBJECT);
     }
 
@@ -45,7 +45,7 @@ public class Print {
      * @param tag
      * @param arrayList
      */
-    public static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList) {
+    static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList) {
         Object object;
         for (int i = 0; i < arrayList.size(); i++) {
             object = arrayList.get(i);
@@ -60,7 +60,7 @@ public class Print {
      * @param arrayList
      * @param index
      */
-    public static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList, int index) {
+    static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList, int index) {
         Object object;
         object = arrayList.get(index);
         inputArrayIndexLog(logSeparator, tag, index);
@@ -74,7 +74,7 @@ public class Print {
      * @param startIndex
      * @param endIndex
      */
-    public static void print(LogSeparator logSeparator, String className, ArrayList<?> arrayList, int startIndex, int endIndex) {
+    static void print(LogSeparator logSeparator, String className, ArrayList<?> arrayList, int startIndex, int endIndex) {
         Object object;
         for (int i = startIndex; i <= endIndex; i++) {
             object = arrayList.get(i);
@@ -90,7 +90,7 @@ public class Print {
      * @param index
      */
     private static void inputLogMessage(LogSeparator logSeparator, String tag, Object object, int index) {
-        String logMessage = null;
+        String logMessage;
 
         if (object instanceof String) {
             if (index == SINGLE_OBJECT) {
@@ -98,6 +98,7 @@ public class Print {
             } else {
                 logMessage = "[" + index + "], COMMENT: " + object.toString();
             }
+            logSeparate(logSeparator,tag,logMessage);
         } else {
             try {
                 Class<?> objClass = object.getClass();
@@ -111,26 +112,11 @@ public class Print {
                     } else {
                         logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "Variable Name -> [ " + name + " ] Value -> [ " + value + " ]";
                     }
-
-
+                    logSeparate(logSeparator,tag,logMessage);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(tag, logMessage);
-                break;
-            case INFO:
-                Log.i(tag, logMessage);
-                break;
-            case WARN:
-                Log.w(tag, logMessage);
-                break;
-            case ERROR:
-                Log.e(tag, logMessage);
-                break;
         }
     }
 
@@ -141,19 +127,25 @@ public class Print {
      */
     private static void inputArrayIndexLog(LogSeparator logSeparator, String className, int index) {
         String logMessage = "------------------------- Index: " + index + " -------------------------";
-        switch (logSeparator) {
-            case DEBUG:
-                Log.d(className, logMessage);
-                break;
-            case INFO:
-                Log.i(className, logMessage);
-                break;
-            case WARN:
-                Log.w(className, logMessage);
-                break;
-            case ERROR:
-                Log.e(className, logMessage);
-                break;
+        logSeparate(logSeparator,className,logMessage);
+    }
+
+    static void logSeparate(LogSeparator logSeparator, String tag, String... logMessages) {
+        for (String logMessage : logMessages) {
+            switch (logSeparator) {
+                case DEBUG:
+                    Log.d(tag, logMessage);
+                    break;
+                case INFO:
+                    Log.i(tag, logMessage);
+                    break;
+                case WARN:
+                    Log.w(tag, logMessage);
+                    break;
+                case ERROR:
+                    Log.e(tag, logMessage);
+                    break;
+            }
         }
     }
 
