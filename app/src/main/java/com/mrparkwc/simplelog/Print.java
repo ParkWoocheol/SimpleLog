@@ -98,7 +98,7 @@ public class Print {
             } else {
                 logMessage = "[" + index + "], COMMENT: " + object.toString();
             }
-            logSeparate(logSeparator,tag,logMessage);
+            logSeparate(logSeparator, tag, logMessage);
         } else {
             try {
                 Class<?> objClass = object.getClass();
@@ -107,12 +107,18 @@ public class Print {
                     field.setAccessible(true);
                     String name = field.getName();
                     Object value = field.get(object);
-                    if (index == SINGLE_OBJECT) {
-                        logMessage = "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name -> [ " + name + " ] Value -> [ " + value + " ]";
+                    String valueMessage;
+                    if (isValidPrintDataType(value)) {
+                        valueMessage = "Value -> [ " + value + " ]";
                     } else {
-                        logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "Variable Name -> [ " + name + " ] Value -> [ " + value + " ]";
+                        valueMessage = "Value -> [ Unsupported data type, Please specify this object separately. ]";
                     }
-                    logSeparate(logSeparator,tag,logMessage);
+                    if (index == SINGLE_OBJECT) {
+                        logMessage = "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name -> [ " + name + " ] " + valueMessage;
+                    } else {
+                        logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "Variable Name -> [ " + name + " ] " + valueMessage;
+                    }
+                    logSeparate(logSeparator, tag, logMessage);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -127,7 +133,7 @@ public class Print {
      */
     private static void inputArrayIndexLog(LogSeparator logSeparator, String className, int index) {
         String logMessage = "------------------------- Index: " + index + " -------------------------";
-        logSeparate(logSeparator,className,logMessage);
+        logSeparate(logSeparator, className, logMessage);
     }
 
     static void logSeparate(LogSeparator logSeparator, String tag, String... logMessages) {
@@ -147,6 +153,17 @@ public class Print {
                     break;
             }
         }
+    }
+
+    /**
+     * InComplete Function.
+     *
+     * @param object
+     * @return
+     */
+    private static boolean isValidPrintDataType(Object object) {
+        return object instanceof String || object instanceof Boolean || object instanceof Integer || object instanceof Double
+                || object instanceof Long || object instanceof Float || object instanceof Short || object instanceof Character;
     }
 
 }

@@ -574,4 +574,18 @@ public class Logging extends BaseLogging {
         seperate(LogSeparator.ERROR, className, methodName, lineNumber, tag, arrayList, startIndex, endIndex, comment);
     }
 
+    private static LogDepthLevelSeparator sLogDepthLevelSeparator = LogDepthLevelSeparator.DEFAULT;
+
+    /**
+     * InComplete Function.
+     * @param logDeepLevelSeparator
+     */
+    static void setDepthLevel(LogDepthLevelSeparator logDeepLevelSeparator) {
+        sLogDepthLevelSeparator = logDeepLevelSeparator;
+    }
+
+    static LogDepthLevelSeparator getDepthLevel() {
+        return sLogDepthLevelSeparator;
+    }
+
 }
