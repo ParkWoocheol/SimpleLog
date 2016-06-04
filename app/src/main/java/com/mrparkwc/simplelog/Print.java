@@ -110,8 +110,11 @@ public class Print {
                     String valueMessage;
                     if (isValidPrintDataType(value)) {
                         valueMessage = "Value -> [ " + value + " ]";
-                    } else {
+                    } else if(value == null){
+                        valueMessage = "Value -> [ Target is Null Point. ]";
+                    }else{
                         valueMessage = "Value -> [ Unsupported data type, Please specify this object separately. ]";
+
                     }
                     if (index == SINGLE_OBJECT) {
                         logMessage = "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name -> [ " + name + " ] " + valueMessage;
