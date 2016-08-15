@@ -48,7 +48,7 @@ public class Print {
     static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList) {
         int lastIndex = arrayList.size();
         for (int index = 0; index < lastIndex; index++) {
-            logPrint(arrayList.get(index), logSeparator, tag, index);
+            input(arrayList.get(index), logSeparator, tag, index);
         }
     }
 
@@ -59,7 +59,7 @@ public class Print {
      * @param index
      */
     static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList, int index) {
-        logPrint(arrayList.get(index), logSeparator, tag, index);
+        input(arrayList.get(index), logSeparator, tag, index);
     }
 
     /**
@@ -71,7 +71,7 @@ public class Print {
      */
     static void print(LogSeparator logSeparator, String className, ArrayList<?> arrayList, int startIndex, int endIndex) {
         for (int index = startIndex; index <= endIndex; index++) {
-            logPrint(arrayList.get(index), logSeparator, className, index);
+            input(arrayList.get(index), logSeparator, className, index);
         }
     }
 
@@ -81,7 +81,7 @@ public class Print {
      * @param tag
      * @param index
      */
-    private static void logPrint(Object object, LogSeparator logSeparator, String tag, int index) {
+    private static void input(Object object, LogSeparator logSeparator, String tag, int index) {
         inputArrayIndexLog(logSeparator, tag, index);
         inputLogMessage(logSeparator, tag, object, index);
     }
