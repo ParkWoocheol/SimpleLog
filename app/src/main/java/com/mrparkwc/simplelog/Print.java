@@ -46,11 +46,9 @@ public class Print {
      * @param arrayList
      */
     static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList) {
-        Object object;
-        for (int i = 0; i < arrayList.size(); i++) {
-            object = arrayList.get(i);
-            inputArrayIndexLog(logSeparator, tag, i);
-            inputLogMessage(logSeparator, tag, object, i);
+        int lastIndex = arrayList.size();
+        for (int index = 0; index < lastIndex; index++) {
+            logPrint(arrayList.get(index), logSeparator, tag, index);
         }
     }
 
@@ -61,10 +59,7 @@ public class Print {
      * @param index
      */
     static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList, int index) {
-        Object object;
-        object = arrayList.get(index);
-        inputArrayIndexLog(logSeparator, tag, index);
-        inputLogMessage(logSeparator, tag, object, index);
+        logPrint(arrayList.get(index), logSeparator, tag, index);
     }
 
     /**
@@ -75,12 +70,20 @@ public class Print {
      * @param endIndex
      */
     static void print(LogSeparator logSeparator, String className, ArrayList<?> arrayList, int startIndex, int endIndex) {
-        Object object;
-        for (int i = startIndex; i <= endIndex; i++) {
-            object = arrayList.get(i);
-            inputArrayIndexLog(logSeparator, className, i);
-            inputLogMessage(logSeparator, className, object, i);
+        for (int index = startIndex; index <= endIndex; index++) {
+            logPrint(arrayList.get(index), logSeparator, className, index);
         }
+    }
+
+    /**
+     * @param object
+     * @param logSeparator
+     * @param tag
+     * @param index
+     */
+    private static void logPrint(Object object, LogSeparator logSeparator, String tag, int index) {
+        inputArrayIndexLog(logSeparator, tag, index);
+        inputLogMessage(logSeparator, tag, object, index);
     }
 
     /**
@@ -110,9 +113,9 @@ public class Print {
                     String valueMessage;
                     if (isValidPrintDataType(value)) {
                         valueMessage = "Value -> [ " + value + " ]";
-                    } else if(value == null){
+                    } else if (value == null) {
                         valueMessage = "Value -> [ Target is Null Point. ]";
-                    }else{
+                    } else {
                         valueMessage = "Value -> [ Unsupported data type, Please specify this object separately. ]";
 
                     }
