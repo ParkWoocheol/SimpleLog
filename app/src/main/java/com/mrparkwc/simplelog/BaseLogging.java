@@ -458,6 +458,6 @@ abstract class BaseLogging {
     }
 
     private static boolean isNull(Object object) {
-        return (object == null);
+        return object == null;
     }
 }
