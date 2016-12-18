@@ -14,7 +14,13 @@ public class DemoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        
+        if(BuildConfig.DEBUG){
+            Logging.isRunning = true;
+        }else{
+            Logging.isRunning = false;
+        }
+        
        /**
         * Print Form :
         * Class Name : Method Name, Line
@@ -135,6 +141,14 @@ public class DemoActivity extends Activity {
         ...
         Logging.d();
         ...
+        
+        /**
+         * If you want to get a String Log message
+         * uses Same Logging.(i, e, w, d) parameter
+         * @return String log messages.
+         */
+         Logging.getMessage( ... )
+    
     }
 }
 ```
@@ -145,13 +159,13 @@ Maven:
 <dependency>
   <groupId>com.mrparkwc</groupId>
   <artifactId>simplelog</artifactId>
-  <version>1.2.2</version>
+  <version>2.0.0</version>
   <type>aar</type>
 </dependency>
 ```
 Gradle:
 ```groovy
-compile 'com.mrparkwc:simplelog:1.2.2'
+compile 'com.mrparkwc:simplelog:2.0.0'
 ```
 Developed By
 ============
