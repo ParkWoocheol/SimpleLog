@@ -726,4 +726,143 @@ public class Logging extends BaseLogging {
     }
   }
 
+
+  /**
+   * return Message
+   */
+
+  public static String getMessage() {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber);
+  }
+
+  public static String getMessage(String comment) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, comment);
+  }
+
+  public static String getMessage(String tag, String comment) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, tag, comment);
+  }
+
+  public static String getMessage(Object object) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, object);
+  }
+
+  public static String getMessage(String tag, Object object) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, tag, object);
+  }
+
+  public static String getMessage(Object object, String comment) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, object, comment);
+  }
+
+  public static String getMessage(String tag, Object object, String comment) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, tag, object, comment);
+  }
+
+  public static String getMessage(ArrayList<?> arrayList) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, arrayList);
+  }
+
+  public static String getMessage(String tag, ArrayList<?> arrayList) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, tag, arrayList);
+  }
+
+  public static String getMessage(ArrayList<?> arrayList, String comment) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, arrayList, comment);
+  }
+
+  public static String getMessage(String tag, ArrayList<?> arrayList, String comment) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, tag, arrayList, comment);
+  }
+
+  public static String getMessage(ArrayList<?> arrayList, int index) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, arrayList, index);
+  }
+
+  public static String getMessage(String tag, ArrayList<?> arrayList, int index) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, tag, arrayList, index);
+  }
+
+  public static String getMessage(ArrayList<?> arrayList, int index, String comment) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, arrayList, index, comment);
+  }
+
+  public static String getMessage(String tag, ArrayList<?> arrayList, int index, String comment) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, tag, arrayList, index, comment);
+  }
+
+  public static String getMessage(ArrayList<?> arrayList, int startIndex, int endIndex) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, arrayList, startIndex, endIndex);
+  }
+
+  public static String getMessage(String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, tag, arrayList, startIndex, endIndex);
+  }
+
+  public static String getMessage(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, arrayList, startIndex, endIndex, comment);
+  }
+
+  public static String getMessage(String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
+    String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
+    String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
+    int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+    return getLogMessage(className, methodName, lineNumber, tag, arrayList, startIndex, endIndex, comment);
+  }
+
+
 }
