@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Simplelog by ParkWoocheol</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Simplelog</h1>
+      <h2 class="project-tagline">Simple Log for Android by Park, Woocheol</h2>
+      <a href="https://github.com/ParkWoocheol/SimpleLog" class="btn">View on GitHub</a>
+      <a href="https://github.com/ParkWoocheol/SimpleLog/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ParkWoocheol/SimpleLog/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="simplelog" class="anchor" href="#simplelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SimpleLog</h1>
+
+<p>You can use easily Log.</p>
+
+<h1>
+<a id="javadoc" class="anchor" href="#javadoc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JavaDoc</h1>
+
+<p><a href="http://mrparkwc.com/simplelog">http://mrparkwc.com/simplelog</a></p>
+
+<h1>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h1>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">DemoActivity</span> <span class="pl-k">extends</span> <span class="pl-e">Activity</span> {
+
+    <span class="pl-k">@Override</span>
+    <span class="pl-k">protected</span> <span class="pl-k">void</span> <span class="pl-en">onCreate</span>(<span class="pl-smi">Bundle</span> <span class="pl-v">savedInstanceState</span>) {
+        <span class="pl-v">super</span><span class="pl-k">.</span>onCreate(savedInstanceState);
+
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name : Method Name, Line</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(); 
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name : Method Name, Line, Comment</span>
+<span class="pl-c">        */</span>  
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-s"><span class="pl-pds">"</span>Comment<span class="pl-pds">"</span></span>); 
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * TAG : Class Name , Method Name, Line, Comment</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-s"><span class="pl-pds">"</span>TAG<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>Comment<span class="pl-pds">"</span></span>); 
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name : [Object Name], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-smi">Object</span>); 
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * TAG : [Object Name], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-c1">TAG</span>,<span class="pl-smi">Object</span>); 
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * ClassName : [Object Name], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-smi">Object</span>,<span class="pl-s"><span class="pl-pds">"</span>Comment<span class="pl-pds">"</span></span>);
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name</span>
+<span class="pl-c">        * Comment</span>
+<span class="pl-c">        * TAG : [Object Name], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-c1">TAG</span>,<span class="pl-smi">Object</span>,<span class="pl-s"><span class="pl-pds">"</span>Comment<span class="pl-pds">"</span></span>);
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-k">ArrayList&lt;?&gt;</span>); 
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * TAG : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-c1">TAG</span>,<span class="pl-k">ArrayList&lt;?&gt;</span>); 
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name</span>
+<span class="pl-c">        * Comment</span>
+<span class="pl-c">        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-k">ArrayList&lt;?&gt;</span>,<span class="pl-s"><span class="pl-pds">"</span>Comment<span class="pl-pds">"</span></span>);
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name</span>
+<span class="pl-c">        * Comment</span>
+<span class="pl-c">        * TAG : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-c1">TAG</span>,<span class="pl-k">ArrayList&lt;?&gt;</span>,<span class="pl-s"><span class="pl-pds">"</span>Comment<span class="pl-pds">"</span></span>);
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name</span>
+<span class="pl-c">        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-k">ArrayList&lt;?&gt;</span>, <span class="pl-k">int</span> index); 
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name, Index</span>
+<span class="pl-c">        * TAG : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-c1">TAG</span>,<span class="pl-k">ArrayList&lt;?&gt;</span>, <span class="pl-k">int</span> index); 
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name, Index</span>
+<span class="pl-c">        * Comment</span>
+<span class="pl-c">        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-k">ArrayList&lt;?&gt;</span>, <span class="pl-k">int</span> index,<span class="pl-s"><span class="pl-pds">"</span>Comment<span class="pl-pds">"</span></span>);
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name, Index</span>
+<span class="pl-c">        * Comment</span>
+<span class="pl-c">        * TAG : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-c1">TAG</span>,<span class="pl-k">ArrayList&lt;?&gt;</span>, <span class="pl-k">int</span> index,<span class="pl-s"><span class="pl-pds">"</span>Comment<span class="pl-pds">"</span></span>);
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name, Start Index,End Index</span>
+<span class="pl-c">        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-k">ArrayList&lt;?&gt;</span>, <span class="pl-k">int</span> startIndex, <span class="pl-k">int</span> endIndex); 
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name, Start Index,End Index</span>
+<span class="pl-c">        * TAG : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-c1">TAG</span>,<span class="pl-k">ArrayList&lt;?&gt;</span>, <span class="pl-k">int</span> startIndex, <span class="pl-k">int</span> endIndex); 
+      <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name, Start Index,End Index</span>
+<span class="pl-c">        * Comment</span>
+<span class="pl-c">        * Class Name : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-k">ArrayList&lt;?&gt;</span>, <span class="pl-k">int</span> startIndex, <span class="pl-k">int</span> endIndex,<span class="pl-s"><span class="pl-pds">"</span>Comment<span class="pl-pds">"</span></span>); 
+       <span class="pl-c">/**</span>
+<span class="pl-c">        * Print Form :</span>
+<span class="pl-c">        * Class Name, Start Index,End Index</span>
+<span class="pl-c">        * Comment</span>
+<span class="pl-c">        * TAG : [Object Name] [ArrayList Index], Variable Name, Value</span>
+<span class="pl-c">        */</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>i(<span class="pl-c1">TAG</span>,<span class="pl-k">ArrayList&lt;?&gt;</span>, <span class="pl-k">int</span> startIndex, <span class="pl-k">int</span> endIndex,<span class="pl-s"><span class="pl-pds">"</span>Comment<span class="pl-pds">"</span></span>); 
+
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>e();
+        <span class="pl-c1">...</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>w();
+        <span class="pl-c1">...</span>
+        <span class="pl-smi">Logging</span><span class="pl-k">.</span>d();
+        <span class="pl-c1">...</span>
+    }
+}</pre></div>
+
+<h1>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h1>
+
+<p>Maven:</p>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
+  &lt;<span class="pl-ent">groupId</span>&gt;com.mrparkwc&lt;/<span class="pl-ent">groupId</span>&gt;
+  &lt;<span class="pl-ent">artifactId</span>&gt;simplelog&lt;/<span class="pl-ent">artifactId</span>&gt;
+  &lt;<span class="pl-ent">version</span>&gt;1.2.2&lt;/<span class="pl-ent">version</span>&gt;
+  &lt;<span class="pl-ent">type</span>&gt;aar&lt;/<span class="pl-ent">type</span>&gt;
+&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
+
+<p>Gradle:</p>
+
+<div class="highlight highlight-source-groovy"><pre>compile <span class="pl-s"><span class="pl-pds">'</span>com.mrparkwc:simplelog:1.2.2<span class="pl-pds">'</span></span></pre></div>
+
+<h1>
+<a id="developed-by" class="anchor" href="#developed-by" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Developed By</h1>
+
+<ul>
+<li>Park, Woocheol - <a href="mailto:admin@mrparkwc.com">admin@mrparkwc.com</a>
+</li>
+</ul>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
+
+<pre><code>Copyright (C) 2015 Park, Woocheol
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/ParkWoocheol/SimpleLog">Simplelog</a> is maintained by <a href="https://github.com/ParkWoocheol">ParkWoocheol</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
