@@ -6,6 +6,10 @@ JavaDoc
 ============
 <http://mrparkwc.com/simplelog>
 
+Demo
+============
+<img src="https://github.com/ParkWoocheol/SimpleLog/blob/master/images/capture.PNG" alt="SimpleLog"/>
+
 Example
 ============
 ```java
