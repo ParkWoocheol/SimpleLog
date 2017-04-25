@@ -145,6 +145,9 @@ public class Print {
     static void logSeparate(LogSeparator logSeparator, String tag, String... logMessages) {
         for (String logMessage : logMessages) {
             switch (logSeparator) {
+                case VERBOSE:
+                    Log.d(tag, logMessage);
+                    break;
                 case DEBUG:
                     Log.d(tag, logMessage);
                     break;

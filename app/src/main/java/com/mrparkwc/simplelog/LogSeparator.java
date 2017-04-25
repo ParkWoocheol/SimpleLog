@@ -22,6 +22,6 @@ package com.mrparkwc.simplelog;
  * Email: admin@mrparkwc.com
  * GitHub: https://github.com/ParkWoocheol
  */
- enum LogSeparator {
-    DEBUG,INFO,WARN,ERROR
+enum LogSeparator {
+    VERBOSE, DEBUG, INFO, WARN, ERROR
 }
