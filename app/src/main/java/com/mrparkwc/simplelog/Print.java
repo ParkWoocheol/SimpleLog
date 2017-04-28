@@ -111,12 +111,13 @@ public class Print {
                     String name = field.getName();
                     Object value = field.get(object);
                     String valueMessage;
+                    String type = field.getType().getCanonicalName();
                     if (isValidPrintDataType(value)) {
-                        valueMessage = "Value -> [ " + value + " ]";
+                        valueMessage = "Type -> [" + type + "]" + ", Value -> [ " + value + " ]";
                     } else if (value == null) {
-                        valueMessage = "Value -> [ Target is Null Point. ]";
+                        valueMessage = "Type -> [" + type + "]" + ", Value -> [ Target is Null Point. ]";
                     } else {
-                        valueMessage = "Value -> [ Unsupported data type, Please specify this object separately. ]";
+                        valueMessage = "Type -> [" + type + "]" + ", Value -> [ Unsupported data type, Please specify this object separately. ]";
 
                     }
                     if (index == SINGLE_OBJECT) {
