@@ -169,7 +169,7 @@ Maven:
 ```
 Gradle:
 ```groovy
-compile 'com.mrparkwc:simplelog:2.1.0'
+compile 'com.mrparkwc:simplelog:2.1.1'
 ```
 Developed By
 ============
