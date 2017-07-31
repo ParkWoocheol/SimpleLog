@@ -3,6 +3,8 @@ package com.mrparkwc.simplelog;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+import static com.mrparkwc.simplelog.Util.isValidPrintDataType;
+
 /**
  * Created by ParkWoocheol on 2016-12-18.
  */
@@ -98,7 +100,7 @@ public class Message {
                     String name = field.getName();
                     Object value = field.get(object);
                     String valueMessage;
-                    if (isValidPrintDataType(value)) {
+                    if (Util.isValidPrintDataType(value)) {
                         valueMessage = "Value -> [ " + value + " ]";
                     } else if (value == null) {
                         valueMessage = "Value -> [ Target is Null Point. ]";
@@ -128,14 +130,5 @@ public class Message {
         String logMessage = "------------------------- Index: " + index + " -------------------------";
         return getBasicMessage(className, logMessage);
     }
-
-    /**
-     * InComplete Function.
-     */
-    private static boolean isValidPrintDataType(Object object) {
-        return object instanceof String || object instanceof Boolean || object instanceof Integer || object instanceof Double
-                || object instanceof Long || object instanceof Float || object instanceof Short || object instanceof Character;
-    }
-
 
 }
