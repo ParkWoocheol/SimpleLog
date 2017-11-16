@@ -22,6 +22,8 @@ import android.util.Log;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+import static com.mrparkwc.simplelog.Util.isValidPrintDataType;
+
 /**
  * Developed by Park, Woocheol
  * Email: admin@mrparkwc.com
@@ -112,7 +114,7 @@ public class Print {
                     Object value = field.get(object);
                     String valueMessage;
                     String type = field.getType().getCanonicalName();
-                    if (isValidPrintDataType(value)) {
+                    if (Util.isValidPrintDataType(value)) {
                         valueMessage = "Type -> [" + type + "]" + ", Value -> [ " + value + " ]";
                     } else if (value == null) {
                         valueMessage = "Type -> [" + type + "]" + ", Value -> [ Target is Null Point. ]";
@@ -164,16 +166,4 @@ public class Print {
             }
         }
     }
-
-    /**
-     * InComplete Function.
-     *
-     * @param object
-     * @return
-     */
-    private static boolean isValidPrintDataType(Object object) {
-        return object instanceof String || object instanceof Boolean || object instanceof Integer || object instanceof Double
-                || object instanceof Long || object instanceof Float || object instanceof Short || object instanceof Character;
-    }
-
 }
