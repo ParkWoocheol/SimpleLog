@@ -928,7 +928,7 @@ public class Logging extends BaseLogging {
      */
 
     public static String getMessage() {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -936,7 +936,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(String comment) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -944,7 +944,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(String tag, String comment) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -952,7 +952,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(Object object) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -964,7 +964,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(String tag, Object object) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -972,7 +972,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(Object object, String comment) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -980,7 +980,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(String tag, Object object, String comment) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -988,7 +988,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(ArrayList<?> arrayList) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -996,7 +996,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -1004,7 +1004,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(ArrayList<?> arrayList, String comment) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -1012,7 +1012,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList, String comment) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -1020,7 +1020,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(ArrayList<?> arrayList, int index) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -1028,7 +1028,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList, int index) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -1036,7 +1036,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(ArrayList<?> arrayList, int index, String comment) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -1044,7 +1044,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList, int index, String comment) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -1052,7 +1052,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(ArrayList<?> arrayList, int startIndex, int endIndex) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -1060,7 +1060,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -1068,7 +1068,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
@@ -1076,7 +1076,7 @@ public class Logging extends BaseLogging {
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
-        int stackTraceSize = Thread.currentThread().getStackTrace().length;
+
         String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
         String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
         int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();

@@ -22,30 +22,24 @@ import android.util.Log;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-import static com.mrparkwc.simplelog.Util.isValidPrintDataType;
-
 /**
  * Developed by Park, Woocheol
  * Email: admin@mrparkwc.com
  * GitHub: https://github.com/ParkWoocheol
  */
-public class Print {
+class Print {
 
     private static final int SINGLE_OBJECT = -1;
 
     /**
-     * @param logSeparator
-     * @param tag
-     * @param object
+     * @param logSeparator {@link LogSeparator}
      */
     static void print(LogSeparator logSeparator, String tag, Object object) {
         inputLogMessage(logSeparator, tag, object, SINGLE_OBJECT);
     }
 
     /**
-     * @param logSeparator
-     * @param tag
-     * @param arrayList
+     * @param logSeparator {@link LogSeparator}
      */
     static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList) {
         int lastIndex = arrayList.size();
@@ -55,21 +49,14 @@ public class Print {
     }
 
     /**
-     * @param logSeparator
-     * @param tag
-     * @param arrayList
-     * @param index
+     * @param logSeparator {@link LogSeparator}
      */
     static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList, int index) {
         input(arrayList.get(index), logSeparator, tag, index);
     }
 
     /**
-     * @param logSeparator
-     * @param className
-     * @param arrayList
-     * @param startIndex
-     * @param endIndex
+     * @param logSeparator {@link LogSeparator}
      */
     static void print(LogSeparator logSeparator, String className, ArrayList<?> arrayList, int startIndex, int endIndex) {
         for (int index = startIndex; index <= endIndex; index++) {
@@ -78,10 +65,7 @@ public class Print {
     }
 
     /**
-     * @param object
-     * @param logSeparator
-     * @param tag
-     * @param index
+     * @param logSeparator {@link LogSeparator}
      */
     private static void input(Object object, LogSeparator logSeparator, String tag, int index) {
         inputArrayIndexLog(logSeparator, tag, index);
@@ -89,10 +73,7 @@ public class Print {
     }
 
     /**
-     * @param logSeparator
-     * @param tag
-     * @param object
-     * @param index
+     * @param logSeparator {@link LogSeparator}
      */
     private static void inputLogMessage(LogSeparator logSeparator, String tag, Object object, int index) {
         String logMessage;
@@ -136,15 +117,16 @@ public class Print {
     }
 
     /**
-     * @param logSeparator
-     * @param className
-     * @param index
+     * @param logSeparator {@link LogSeparator}
      */
     private static void inputArrayIndexLog(LogSeparator logSeparator, String className, int index) {
         String logMessage = "------------------------- Index: " + index + " -------------------------";
         logSeparate(logSeparator, className, logMessage);
     }
 
+    /**
+     * @param logSeparator {@link LogSeparator}
+     */
     static void logSeparate(LogSeparator logSeparator, String tag, String... logMessages) {
         for (String logMessage : logMessages) {
             switch (logSeparator) {
