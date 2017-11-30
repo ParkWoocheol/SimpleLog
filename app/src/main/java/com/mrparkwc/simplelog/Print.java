@@ -131,7 +131,7 @@ class Print {
         for (String logMessage : logMessages) {
             switch (logSeparator) {
                 case VERBOSE:
-                    Log.d(tag, logMessage);
+                    Log.v(tag, logMessage);
                     break;
                 case DEBUG:
                     Log.d(tag, logMessage);
