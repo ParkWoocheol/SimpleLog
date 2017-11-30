@@ -5,18 +5,18 @@ publish {
     userOrg = 'woocheol'
     groupId = 'com.mrparkwc'
     artifactId = 'simplelog'
-    publishVersion = '2.1.0'
+    publishVersion = '2.1.2'
     desc = 'Simple Log'
     website = 'https://github.com/ParkWoocheol/SimpleLog'
 }
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 24
+        minSdkVersion 15
+        targetSdkVersion 26
 
     }
 

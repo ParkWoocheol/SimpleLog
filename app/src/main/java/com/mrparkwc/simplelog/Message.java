@@ -1,22 +1,40 @@
+/*
+ * Copyright (C) 2015 Park, Woocheol
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.mrparkwc.simplelog;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-/**
- * Created by ParkWoocheol on 2016-12-18.
- */
 
-public class Message {
+/**
+ * Developed by Park, Woocheol
+ * Email: admin@mrparkwc.com
+ * GitHub: https://github.com/ParkWoocheol
+ */
+class Message {
 
     private static final int SINGLE_OBJECT = -1;
 
     static String getBasicMessage(String tag, String... logMessages) {
-        String message = "";
+        StringBuilder message = new StringBuilder();
         for (String logMessage : logMessages) {
-            message += "[TAG: " + tag + "] : " + logMessage + "\n";
+            message.append("[TAG: ").append(tag).append("] : ").append(logMessage).append("\n");
         }
-        return message;
+        return message.toString();
     }
 
 
@@ -25,7 +43,7 @@ public class Message {
      * @param object
      */
     static String getObjectInformationMessage(String tag, Object object) {
-        return getRefrectMessage(tag, object, SINGLE_OBJECT);
+        return getReflectMessage(tag, object, SINGLE_OBJECT);
     }
 
     /**
@@ -34,11 +52,11 @@ public class Message {
      */
     static String getObjectInformationMessage(String tag, ArrayList<?> arrayList) {
         int lastIndex = arrayList.size();
-        String message = "";
+        StringBuilder message = new StringBuilder();
         for (int index = 0; index < lastIndex; index++) {
-            message += getArrayRefrectMessage(arrayList.get(index), tag, index) + "\n";
+            message.append(getArrayReflectMessage(arrayList.get(index), tag, index)).append("\n");
         }
-        return message;
+        return message.toString();
     }
 
     /**
@@ -47,7 +65,7 @@ public class Message {
      * @param index
      */
     static String getObjectInformationMessage(String tag, ArrayList<?> arrayList, int index) {
-        return getArrayRefrectMessage(arrayList.get(index), tag, index);
+        return getArrayReflectMessage(arrayList.get(index), tag, index);
     }
 
     /**
@@ -57,11 +75,11 @@ public class Message {
      * @param endIndex
      */
     static String getObjectInformationMessage(String className, ArrayList<?> arrayList, int startIndex, int endIndex) {
-        String message = "";
+        StringBuilder message = new StringBuilder();
         for (int index = startIndex; index <= endIndex; index++) {
-            message += getArrayRefrectMessage(arrayList.get(index), className, index) + "\n";
+            message.append(getArrayReflectMessage(arrayList.get(index), className, index)).append("\n");
         }
-        return message;
+        return message.toString();
     }
 
     /**
@@ -69,8 +87,8 @@ public class Message {
      * @param tag
      * @param index
      */
-    private static String getArrayRefrectMessage(Object object, String tag, int index) {
-        return getArrayIndexMessage(tag, index) + "\n" + getRefrectMessage(tag, object, index);
+    private static String getArrayReflectMessage(Object object, String tag, int index) {
+        return getArrayIndexMessage(tag, index) + "\n" + getReflectMessage(tag, object, index);
     }
 
     /**
@@ -78,7 +96,7 @@ public class Message {
      * @param object
      * @param index
      */
-    private static String getRefrectMessage(String tag, Object object, int index) {
+    private static String getReflectMessage(String tag, Object object, int index) {
         String logMessage;
 
         if (object instanceof String) {
@@ -89,7 +107,7 @@ public class Message {
             }
             return getBasicMessage(tag, logMessage);
         } else {
-            String message = "";
+            StringBuilder message = new StringBuilder();
             try {
                 Class<?> objClass = object.getClass();
                 Field[] fields = objClass.getDeclaredFields();
@@ -98,25 +116,24 @@ public class Message {
                     String name = field.getName();
                     Object value = field.get(object);
                     String valueMessage;
-                    if (isValidPrintDataType(value)) {
+                    if (Util.isValidPrintDataType(value)) {
                         valueMessage = "Value -> [ " + value + " ]";
                     } else if (value == null) {
                         valueMessage = "Value -> [ Target is Null Point. ]";
                     } else {
                         valueMessage = "Value -> [ Unsupported data type, Please specify this object separately. ]";
-
                     }
                     if (index == SINGLE_OBJECT) {
                         logMessage = "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name -> [ " + name + " ] " + valueMessage;
                     } else {
                         logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "Variable Name -> [ " + name + " ] " + valueMessage;
                     }
-                    message += "\n" + getBasicMessage(tag, logMessage);
+                    message.append("\n").append(getBasicMessage(tag, logMessage));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return message;
+            return message.toString();
         }
     }
 
@@ -128,14 +145,5 @@ public class Message {
         String logMessage = "------------------------- Index: " + index + " -------------------------";
         return getBasicMessage(className, logMessage);
     }
-
-    /**
-     * InComplete Function.
-     */
-    private static boolean isValidPrintDataType(Object object) {
-        return object instanceof String || object instanceof Boolean || object instanceof Integer || object instanceof Double
-                || object instanceof Long || object instanceof Float || object instanceof Short || object instanceof Character;
-    }
-
 
 }
