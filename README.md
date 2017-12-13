@@ -174,7 +174,7 @@ compile 'com.mrparkwc:simplelog:2.2.0'
 Developed By
 ============
 
-* Park, Woocheol - <admin@mrparkwc.com>
+* Park, Woocheol - <mrparkwc@gmail.com>
 
 
 
