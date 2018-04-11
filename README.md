@@ -159,13 +159,13 @@ Maven:
 <dependency>
   <groupId>com.parkwoocheol</groupId>
   <artifactId>simplelog</artifactId>
-  <version>2.2.1</version>
+  <version>2.2.2</version>
   <type>aar</type>
 </dependency>
 ```
 Gradle:
 ```groovy
-compile 'com.parkwoocheol:simplelog:2.2.1'
+compile 'com.parkwoocheol:simplelog:2.2.2'
 ```
 Developed By
 ============
