@@ -1,4 +1,4 @@
-package com.mrparkwc.simplelog;
+package com.parkwoocheol.simplelog;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
