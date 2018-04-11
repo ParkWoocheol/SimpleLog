@@ -118,7 +118,7 @@ class Print {
     }
 
     private static void inputArrayIndexLog(LogSeparator logSeparator, String className, int index) {
-        String logMessage = "------------------------- Index: " + index + " -------------------------";
+        String logMessage = "------------------------- index: " + index + " -------------------------";
         logSeparate(logSeparator, className, logMessage);
     }
 

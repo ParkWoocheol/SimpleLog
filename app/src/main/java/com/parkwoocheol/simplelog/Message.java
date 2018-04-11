@@ -32,7 +32,7 @@ class Message {
     static String getBasicMessage(String tag, String... logMessages) {
         StringBuilder message = new StringBuilder();
         for (String logMessage : logMessages) {
-            message.append("[TAG: ").append(tag).append("] : ").append(logMessage).append("\n");
+            message.append("[tag: ").append(tag).append("] : ").append(logMessage).append("\n");
         }
         return message.toString();
     }
@@ -70,11 +70,7 @@ class Message {
         String logMessage;
 
         if (object instanceof String) {
-            if (index == SINGLE_OBJECT) {
-                logMessage = " COMMENT: " + object.toString();
-            } else {
-                logMessage = "[" + index + "], COMMENT: " + object.toString();
-            }
+            logMessage = getLogMessage(object, index);
             return getBasicMessage(tag, logMessage);
         } else {
             StringBuilder message = new StringBuilder();
@@ -86,18 +82,8 @@ class Message {
                     String name = field.getName();
                     Object value = field.get(object);
                     String valueMessage;
-                    if (Util.isValidPrintDataType(value)) {
-                        valueMessage = "Value -> [ " + value + " ]";
-                    } else if (value == null) {
-                        valueMessage = "Value -> [ Target is Null Point. ]";
-                    } else {
-                        valueMessage = "Value -> [ Unsupported data type, Please specify this object separately. ]";
-                    }
-                    if (index == SINGLE_OBJECT) {
-                        logMessage = "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name -> [ " + name + " ] " + valueMessage;
-                    } else {
-                        logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "Variable Name -> [ " + name + " ] " + valueMessage;
-                    }
+                    valueMessage = getValueMessage(value);
+                    logMessage = getLogMessage(object, index, name, valueMessage);
                     message.append("\n").append(getBasicMessage(tag, logMessage));
                 }
             } catch (Exception e) {
@@ -107,8 +93,40 @@ class Message {
         }
     }
 
+    private static String getLogMessage(Object object, int index, String name, String valueMessage) {
+        String logMessage;
+        if (index == SINGLE_OBJECT) {
+            logMessage = "[ " + object.getClass().getSimpleName() + " ], " + "variable name -> [ " + name + " ] " + valueMessage;
+        } else {
+            logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "variable name -> [ " + name + " ] " + valueMessage;
+        }
+        return logMessage;
+    }
+
+    private static String getValueMessage(Object value) {
+        String valueMessage;
+        if (Util.isValidPrintDataType(value)) {
+            valueMessage = "value -> [ " + value + " ]";
+        } else if (value == null) {
+            valueMessage = "value -> [ target is null point. ]";
+        } else {
+            valueMessage = "value -> [ unsupported data type, please specify this object separately. ]";
+        }
+        return valueMessage;
+    }
+
+    private static String getLogMessage(Object object, int index) {
+        String logMessage;
+        if (index == SINGLE_OBJECT) {
+            logMessage = " comment: " + object.toString();
+        } else {
+            logMessage = "[" + index + "], comment: " + object.toString();
+        }
+        return logMessage;
+    }
+
     private static String getArrayIndexMessage(String className, int index) {
-        String logMessage = "------------------------- Index: " + index + " -------------------------";
+        String logMessage = "------------------------- index: " + index + " -------------------------";
         return getBasicMessage(className, logMessage);
     }
 
