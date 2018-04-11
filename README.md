@@ -157,15 +157,15 @@ Download
 Maven:
 ```xml
 <dependency>
-  <groupId>com.mrparkwc</groupId>
+  <groupId>com.parkwoocheol</groupId>
   <artifactId>simplelog</artifactId>
-  <version>2.2.0</version>
+  <version>2.2.1</version>
   <type>aar</type>
 </dependency>
 ```
 Gradle:
 ```groovy
-compile 'com.mrparkwc:simplelog:2.2.0'
+compile 'com.parkwoocheol:simplelog:2.2.1'
 ```
 Developed By
 ============
