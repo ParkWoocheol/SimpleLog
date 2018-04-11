@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mrparkwc.simplelog">
+    package="com.parkwoocheol.simplelog">
 
     <application
         android:allowBackup="true"

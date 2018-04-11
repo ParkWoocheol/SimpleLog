@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.mrparkwc.simplelog;
+package com.parkwoocheol.simplelog;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -37,19 +37,10 @@ class Message {
         return message.toString();
     }
 
-
-    /**
-     * @param tag
-     * @param object
-     */
     static String getObjectInformationMessage(String tag, Object object) {
         return getReflectMessage(tag, object, SINGLE_OBJECT);
     }
 
-    /**
-     * @param tag
-     * @param arrayList
-     */
     static String getObjectInformationMessage(String tag, ArrayList<?> arrayList) {
         int lastIndex = arrayList.size();
         StringBuilder message = new StringBuilder();
@@ -59,21 +50,10 @@ class Message {
         return message.toString();
     }
 
-    /**
-     * @param tag
-     * @param arrayList
-     * @param index
-     */
     static String getObjectInformationMessage(String tag, ArrayList<?> arrayList, int index) {
         return getArrayReflectMessage(arrayList.get(index), tag, index);
     }
 
-    /**
-     * @param className
-     * @param arrayList
-     * @param startIndex
-     * @param endIndex
-     */
     static String getObjectInformationMessage(String className, ArrayList<?> arrayList, int startIndex, int endIndex) {
         StringBuilder message = new StringBuilder();
         for (int index = startIndex; index <= endIndex; index++) {
@@ -82,20 +62,10 @@ class Message {
         return message.toString();
     }
 
-    /**
-     * @param object
-     * @param tag
-     * @param index
-     */
     private static String getArrayReflectMessage(Object object, String tag, int index) {
         return getArrayIndexMessage(tag, index) + "\n" + getReflectMessage(tag, object, index);
     }
 
-    /**
-     * @param tag
-     * @param object
-     * @param index
-     */
     private static String getReflectMessage(String tag, Object object, int index) {
         String logMessage;
 
@@ -137,10 +107,6 @@ class Message {
         }
     }
 
-    /**
-     * @param className
-     * @param index
-     */
     private static String getArrayIndexMessage(String className, int index) {
         String logMessage = "------------------------- Index: " + index + " -------------------------";
         return getBasicMessage(className, logMessage);

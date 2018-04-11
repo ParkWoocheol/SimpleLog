@@ -15,7 +15,7 @@
  */
 
 
-package com.mrparkwc.simplelog;
+package com.parkwoocheol.simplelog;
 
 import java.util.ArrayList;
 
@@ -23,6 +23,18 @@ import java.util.ArrayList;
  * Developed by Park, Woocheol Email: admin@mrparkwc.com GitHub: https://github.com/ParkWoocheol
  */
 abstract class BaseLogging {
+
+
+    private static final String PREFIX_CLASS = "class: ";
+    private static final String PREFIX_METHOD = "method: ";
+    private static final String PREFIX_LINE = "line: ";
+    private static final String PREFIX_COMMENT = "comment: ";
+    private static final String PREFIX_SIZE = "size: ";
+    private static final String PREFIX_INDEX = "index: ";
+    private static final String PREFIX_START_INDEX = "start index: ";
+    private static final String PREFIX_END_INDEX = "end index: ";
+    private static final String LEFT_ARROW_LINE_SEPARATOR = "<<------------------------- ";
+    private static final String RIGHT_ARROW_LINE_SEPARATOR = " ------------------------->>";
 
     private static final String MESSAGE_NULL = "Target is Null Point.";
     private static final String MESSAGE_EMPTY = "Target is Empty List.";
@@ -37,8 +49,8 @@ abstract class BaseLogging {
 
 
     static void separate(LogSeparator logSeparator, String className, String methodName, int lineNumber) {
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber;
+        String message = PREFIX_METHOD + methodName
+                + ", " + PREFIX_LINE + lineNumber;
         Print.logSeparate(logSeparator, className, message);
     }
 
@@ -49,8 +61,8 @@ abstract class BaseLogging {
         if (isNull(comment)) {
             comment = MESSAGE_NULL;
         }
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber + ", COMMENT: " + comment;
+        String message = PREFIX_METHOD + methodName
+                + ", " + PREFIX_LINE + lineNumber + ", " + PREFIX_COMMENT + comment;
         Print.logSeparate(logSeparator, className, message);
     }
 
@@ -61,9 +73,9 @@ abstract class BaseLogging {
         if (isNull(comment)) {
             comment = MESSAGE_NULL;
         }
-        String message = "CLASS: " + className +
-                ", METHOD: " + methodName
-                + ", LINE: " + lineNumber + ", COMMENT: " + comment;
+        String message = PREFIX_CLASS + className +
+                ", " + PREFIX_METHOD + methodName
+                + ", " + PREFIX_LINE + lineNumber + ", " + PREFIX_COMMENT + comment;
         Print.logSeparate(logSeparator, tag, message);
     }
 
@@ -74,9 +86,9 @@ abstract class BaseLogging {
         if (isNull(object)) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_NULL);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + object.getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR;
             Print.logSeparate(logSeparator, className, message, objectInformationMessage);
             Print.print(logSeparator, className, object);
         }
@@ -89,10 +101,10 @@ abstract class BaseLogging {
         if (isNull(object)) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_NULL);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + object.getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR;
             Print.logSeparate(logSeparator, tag, message, objectInformationMessage);
             Print.print(logSeparator, tag, object);
         }
@@ -105,10 +117,10 @@ abstract class BaseLogging {
         if (isNull(object)) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_NULL);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + object.getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR;
+            String commentMessage = PREFIX_COMMENT + comment;
             Print.logSeparate(logSeparator, className, message, objectInformationMessage, commentMessage);
             Print.print(logSeparator, className, object);
         }
@@ -121,11 +133,11 @@ abstract class BaseLogging {
         if (isNull(object)) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_NULL);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + object.getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR;
+            String commentMessage = PREFIX_COMMENT + comment;
             Print.logSeparate(logSeparator, tag, message, objectInformationMessage, commentMessage);
             Print.print(logSeparator, tag, object);
         }
@@ -140,9 +152,9 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_SIZE + arrayList.size();
             Print.logSeparate(logSeparator, className, message, objectInformationMessage);
             Print.print(logSeparator, className, arrayList);
         }
@@ -157,10 +169,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_SIZE + arrayList.size();
             Print.logSeparate(logSeparator, tag, message, objectInformationMessage);
             Print.print(logSeparator, tag, arrayList);
         }
@@ -176,10 +188,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_SIZE + arrayList.size();
+            String commentMessage = PREFIX_COMMENT + comment;
             Print.logSeparate(logSeparator, className, message, objectInformationMessage, commentMessage);
             Print.print(logSeparator, className, arrayList);
         }
@@ -194,11 +206,11 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_SIZE + arrayList.size();
+            String commentMessage = PREFIX_COMMENT + comment;
             Print.logSeparate(logSeparator, tag, message, objectInformationMessage, commentMessage);
             Print.print(logSeparator, tag, arrayList);
         }
@@ -213,9 +225,9 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_INDEX + index;
             Print.logSeparate(logSeparator, className, message, objectInformationMessage);
             Print.print(logSeparator, className, arrayList, index);
         }
@@ -230,10 +242,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_INDEX + index;
             Print.logSeparate(logSeparator, tag, message, objectInformationMessage);
             Print.print(logSeparator, tag, arrayList, index);
         }
@@ -249,10 +261,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_INDEX + index;
+            String commentMessage = PREFIX_COMMENT + comment;
             Print.logSeparate(logSeparator, className, message, objectInformationMessage, commentMessage);
             Print.print(logSeparator, className, arrayList, index);
         }
@@ -268,11 +280,11 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_INDEX + index;
+            String commentMessage = PREFIX_COMMENT + comment;
             Print.logSeparate(logSeparator, tag, message, objectInformationMessage, commentMessage);
             Print.print(logSeparator, tag, arrayList, index);
         }
@@ -288,9 +300,9 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_START_INDEX + startIndex + ", " + PREFIX_END_INDEX + endIndex;
             Print.logSeparate(logSeparator, className, message, objectInformationMessage);
             Print.print(logSeparator, className, arrayList, startIndex, endIndex);
         }
@@ -307,10 +319,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_START_INDEX + startIndex + ", " + PREFIX_END_INDEX + endIndex;
             Print.logSeparate(logSeparator, tag, message, objectInformationMessage);
             Print.print(logSeparator, className, arrayList, startIndex, endIndex);
         }
@@ -327,10 +339,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_START_INDEX + startIndex + ", " + PREFIX_END_INDEX + endIndex;
+            String commentMessage = PREFIX_COMMENT + comment;
             Print.logSeparate(logSeparator, className, message, objectInformationMessage, commentMessage);
             Print.print(logSeparator, className, arrayList, startIndex, endIndex);
         }
@@ -346,11 +358,11 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             separate(logSeparator, className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_START_INDEX + startIndex + ", " + PREFIX_END_INDEX + endIndex;
+            String commentMessage = PREFIX_COMMENT + comment;
             Print.logSeparate(logSeparator, tag, message, objectInformationMessage, commentMessage);
             Print.print(logSeparator, tag, arrayList, startIndex, endIndex);
         }
@@ -360,8 +372,8 @@ abstract class BaseLogging {
      * @return logMessage
      */
     static String getLogMessage(String className, String methodName, int lineNumber) {
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber;
+        String message = PREFIX_METHOD + methodName
+                + ", " + PREFIX_LINE + lineNumber;
         return Message.getBasicMessage(className, message);
     }
 
@@ -372,8 +384,8 @@ abstract class BaseLogging {
         if (isNull(comment)) {
             comment = MESSAGE_NULL;
         }
-        String message = "METHOD: " + methodName
-                + ", LINE: " + lineNumber + ", COMMENT: " + comment;
+        String message = PREFIX_METHOD + methodName
+                + ", " + PREFIX_LINE + lineNumber + ", " + PREFIX_COMMENT + comment;
         return Message.getBasicMessage(className, message);
     }
 
@@ -384,9 +396,9 @@ abstract class BaseLogging {
         if (isNull(comment)) {
             comment = MESSAGE_NULL;
         }
-        String message = "CLASS: " + className +
-                ", METHOD: " + methodName
-                + ", LINE: " + lineNumber + ", COMMENT: " + comment;
+        String message = PREFIX_CLASS + className +
+                ", " + PREFIX_METHOD + methodName
+                + ", " + PREFIX_LINE + lineNumber + ", " + PREFIX_COMMENT + comment;
         return Message.getBasicMessage(className, message);
     }
 
@@ -397,9 +409,9 @@ abstract class BaseLogging {
         if (isNull(object)) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_NULL);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + object.getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR;
             return Message.getBasicMessage(className, message, objectInformationMessage) + "\n" +
                     Message.getObjectInformationMessage(className, object);
         }
@@ -412,10 +424,10 @@ abstract class BaseLogging {
         if (isNull(object)) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_NULL);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + object.getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR;
             return Message.getBasicMessage(tag, message, objectInformationMessage) + "\n" +
                     Message.getObjectInformationMessage(tag, object);
         }
@@ -428,10 +440,10 @@ abstract class BaseLogging {
         if (isNull(object)) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_NULL);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + object.getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR;
+            String commentMessage = PREFIX_COMMENT + comment;
             return Message.getBasicMessage(className, message, objectInformationMessage, commentMessage) + "\n" +
                     Message.getObjectInformationMessage(className, object);
         }
@@ -444,11 +456,11 @@ abstract class BaseLogging {
         if (isNull(object)) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_NULL);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + object.getClass().getSimpleName() + " ------------------------->>";
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + object.getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR;
+            String commentMessage = PREFIX_COMMENT + comment;
             return Message.getBasicMessage(tag, message, objectInformationMessage, commentMessage) + "\n" +
                     Message.getObjectInformationMessage(tag, object);
         }
@@ -463,9 +475,9 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_SIZE + arrayList.size();
             return Message.getBasicMessage(className, message, objectInformationMessage) + "\n" +
                     Message.getObjectInformationMessage(className, arrayList);
         }
@@ -480,10 +492,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_SIZE + arrayList.size();
             return Message.getBasicMessage(tag, message, objectInformationMessage) + "\n" +
                     Message.getObjectInformationMessage(tag, arrayList);
         }
@@ -499,10 +511,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_SIZE + arrayList.size();
+            String commentMessage = PREFIX_COMMENT + comment;
             return Message.getBasicMessage(className, message, objectInformationMessage, commentMessage) + "\n" +
                     Message.getObjectInformationMessage(className, arrayList);
         }
@@ -518,11 +530,11 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Size: " + arrayList.size();
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_SIZE + arrayList.size();
+            String commentMessage = PREFIX_COMMENT + comment;
             return Message.getBasicMessage(tag, message, objectInformationMessage, commentMessage) + "\n" +
                     Message.getObjectInformationMessage(className, arrayList);
         }
@@ -538,9 +550,9 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_INDEX + index;
             return Message.getBasicMessage(className, message, objectInformationMessage) + "\n" +
                     Message.getObjectInformationMessage(className, arrayList, index);
         }
@@ -556,10 +568,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_INDEX + index;
             return Message.getBasicMessage(tag, message, objectInformationMessage) + "\n" +
                     Message.getObjectInformationMessage(tag, arrayList, index);
         }
@@ -575,10 +587,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_INDEX + index;
+            String commentMessage = PREFIX_COMMENT + comment;
             return Message.getBasicMessage(className, message, objectInformationMessage, commentMessage) + "\n" +
                     Message.getObjectInformationMessage(className, arrayList, index);
         }
@@ -594,11 +606,11 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> Index: " + index;
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_INDEX + index;
+            String commentMessage = PREFIX_COMMENT + comment;
             return Message.getBasicMessage(tag, message, objectInformationMessage, commentMessage) + "\n" +
                     Message.getObjectInformationMessage(tag, arrayList, index);
         }
@@ -614,9 +626,9 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_START_INDEX + startIndex + ", " + PREFIX_END_INDEX + endIndex;
             return Message.getBasicMessage(className, message, objectInformationMessage) + "\n" +
                     Message.getObjectInformationMessage(className, arrayList, startIndex, endIndex);
         }
@@ -633,10 +645,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_START_INDEX + startIndex + ", " + PREFIX_END_INDEX + endIndex;
             return Message.getBasicMessage(tag, message, objectInformationMessage) + "\n" +
                     Message.getObjectInformationMessage(className, arrayList, startIndex, endIndex);
         }
@@ -653,10 +665,10 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_START_INDEX + startIndex + ", " + PREFIX_END_INDEX + endIndex;
+            String commentMessage = PREFIX_COMMENT + comment;
             return Message.getBasicMessage(className, message, objectInformationMessage, commentMessage) + "\n" +
                     Message.getObjectInformationMessage(className, arrayList, startIndex, endIndex);
         }
@@ -672,11 +684,11 @@ abstract class BaseLogging {
         } else if (arrayList.isEmpty()) {
             return getLogMessage(className, methodName, lineNumber, MESSAGE_EMPTY);
         } else {
-            String message = "CLASS: " + className +
-                    ", METHOD: " + methodName
-                    + ", LINE: " + lineNumber;
-            String objectInformationMessage = "<<------------------------- " + arrayList.get(0).getClass().getSimpleName() + " ------------------------->> START INDEX: " + startIndex + ", END INDEX: " + endIndex;
-            String commentMessage = "COMMENT: " + comment;
+            String message = PREFIX_CLASS + className +
+                    ", " + PREFIX_METHOD + methodName
+                    + ", " + PREFIX_LINE + lineNumber;
+            String objectInformationMessage = LEFT_ARROW_LINE_SEPARATOR + arrayList.get(0).getClass().getSimpleName() + RIGHT_ARROW_LINE_SEPARATOR + PREFIX_START_INDEX + startIndex + ", " + PREFIX_END_INDEX + endIndex;
+            String commentMessage = PREFIX_COMMENT + comment;
             return Message.getBasicMessage(tag, message, objectInformationMessage, commentMessage) + "\n" +
                     Message.getObjectInformationMessage(tag, arrayList, startIndex, endIndex);
         }

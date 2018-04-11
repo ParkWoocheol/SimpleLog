@@ -15,7 +15,7 @@
  */
 
 
-package com.mrparkwc.simplelog;
+package com.parkwoocheol.simplelog;
 
 import android.util.Log;
 
@@ -31,16 +31,11 @@ class Print {
 
     private static final int SINGLE_OBJECT = -1;
 
-    /**
-     * @param logSeparator {@link LogSeparator}
-     */
+
     static void print(LogSeparator logSeparator, String tag, Object object) {
         inputLogMessage(logSeparator, tag, object, SINGLE_OBJECT);
     }
 
-    /**
-     * @param logSeparator {@link LogSeparator}
-     */
     static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList) {
         int lastIndex = arrayList.size();
         for (int index = 0; index < lastIndex; index++) {
@@ -48,42 +43,26 @@ class Print {
         }
     }
 
-    /**
-     * @param logSeparator {@link LogSeparator}
-     */
     static void print(LogSeparator logSeparator, String tag, ArrayList<?> arrayList, int index) {
         input(arrayList.get(index), logSeparator, tag, index);
     }
 
-    /**
-     * @param logSeparator {@link LogSeparator}
-     */
     static void print(LogSeparator logSeparator, String className, ArrayList<?> arrayList, int startIndex, int endIndex) {
         for (int index = startIndex; index <= endIndex; index++) {
             input(arrayList.get(index), logSeparator, className, index);
         }
     }
 
-    /**
-     * @param logSeparator {@link LogSeparator}
-     */
     private static void input(Object object, LogSeparator logSeparator, String tag, int index) {
         inputArrayIndexLog(logSeparator, tag, index);
         inputLogMessage(logSeparator, tag, object, index);
     }
 
-    /**
-     * @param logSeparator {@link LogSeparator}
-     */
     private static void inputLogMessage(LogSeparator logSeparator, String tag, Object object, int index) {
         String logMessage;
 
         if (object instanceof String) {
-            if (index == SINGLE_OBJECT) {
-                logMessage = " COMMENT: " + object.toString();
-            } else {
-                logMessage = "[" + index + "], COMMENT: " + object.toString();
-            }
+            logMessage = getLogMessage(object, index);
             logSeparate(logSeparator, tag, logMessage);
         } else {
             try {
@@ -95,19 +74,8 @@ class Print {
                     Object value = field.get(object);
                     String valueMessage;
                     String type = field.getType().getCanonicalName();
-                    if (Util.isValidPrintDataType(value)) {
-                        valueMessage = "Type -> [" + type + "]" + ", Value -> [ " + value + " ]";
-                    } else if (value == null) {
-                        valueMessage = "Type -> [" + type + "]" + ", Value -> [ Target is Null Point. ]";
-                    } else {
-                        valueMessage = "Type -> [" + type + "]" + ", Value -> [ Unsupported data type, Please specify this object separately. ]";
-
-                    }
-                    if (index == SINGLE_OBJECT) {
-                        logMessage = "[ " + object.getClass().getSimpleName() + " ], " + "Variable Name -> [ " + name + " ] " + valueMessage;
-                    } else {
-                        logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "Variable Name -> [ " + name + " ] " + valueMessage;
-                    }
+                    valueMessage = getValueMessage(value, type);
+                    logMessage = getLogMessage(object, index, name, valueMessage);
                     logSeparate(logSeparator, tag, logMessage);
                 }
             } catch (Exception e) {
@@ -116,17 +84,44 @@ class Print {
         }
     }
 
-    /**
-     * @param logSeparator {@link LogSeparator}
-     */
+    private static String getLogMessage(Object object, int index) {
+        String logMessage;
+        if (index == SINGLE_OBJECT) {
+            logMessage = " comment: " + object.toString();
+        } else {
+            logMessage = "[" + index + "], comment: " + object.toString();
+        }
+        return logMessage;
+    }
+
+    private static String getLogMessage(Object object, int index, String name, String valueMessage) {
+        String logMessage;
+        if (index == SINGLE_OBJECT) {
+            logMessage = "[ " + object.getClass().getSimpleName() + " ], " + "variable name -> [ " + name + " ] " + valueMessage;
+        } else {
+            logMessage = "[ " + object.getClass().getSimpleName() + " ][" + index + "], " + "variable name -> [ " + name + " ] " + valueMessage;
+        }
+        return logMessage;
+    }
+
+    private static String getValueMessage(Object value, String type) {
+        String valueMessage;
+        if (Util.isValidPrintDataType(value)) {
+            valueMessage = "type -> [" + type + "]" + ", value -> [ " + value + " ]";
+        } else if (value == null) {
+            valueMessage = "type -> [" + type + "]" + ", value -> [ target is null point. ]";
+        } else {
+            valueMessage = "type -> [" + type + "]" + ", value -> [ unsupported data type, please specify this object separately. ]";
+
+        }
+        return valueMessage;
+    }
+
     private static void inputArrayIndexLog(LogSeparator logSeparator, String className, int index) {
         String logMessage = "------------------------- Index: " + index + " -------------------------";
         logSeparate(logSeparator, className, logMessage);
     }
 
-    /**
-     * @param logSeparator {@link LogSeparator}
-     */
     static void logSeparate(LogSeparator logSeparator, String tag, String... logMessages) {
         for (String logMessage : logMessages) {
             switch (logSeparator) {

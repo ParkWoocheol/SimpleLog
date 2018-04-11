@@ -14,14 +14,21 @@
  * limitations under the License.
  */
 
-
-package com.mrparkwc.simplelog;
+package com.parkwoocheol.simplelog;
 
 /**
  * Developed by Park, Woocheol
  * Email: admin@mrparkwc.com
  * GitHub: https://github.com/ParkWoocheol
  */
-enum LogSeparator {
-    VERBOSE, DEBUG, INFO, WARN, ERROR
+class Util {
+
+    /**
+     * InComplete Function.
+     */
+    static boolean isValidPrintDataType(Object object) {
+        return object instanceof String || object instanceof Boolean || object instanceof Integer || object instanceof Double
+                || object instanceof Long || object instanceof Float || object instanceof Short || object instanceof Character;
+    }
+
 }

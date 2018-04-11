@@ -15,7 +15,7 @@
  */
 
 
-package com.mrparkwc.simplelog;
+package com.parkwoocheol.simplelog;
 
 import java.util.ArrayList;
 
