@@ -133,7 +133,7 @@ public class DemoActivity extends Activity {
         * comment
         * TAG : [object name] [index], variable name, value
         */
-        Logging.i(Tag tag,ArrayList<?> arrayList, int startIndex, int endIndex,"comment"); 
+        Logging.i(Tag,ArrayList<?> arrayList, int startIndex, int endIndex,"comment"); 
         
         Logging.e();
         ...
