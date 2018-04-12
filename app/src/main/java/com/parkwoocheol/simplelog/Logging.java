@@ -32,176 +32,119 @@ public class Logging extends BaseLogging {
 
     public static void v() {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()));
         }
     }
 
     public static void v(String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, comment);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), comment);
         }
     }
 
     public static void v(String tag, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, tag, comment);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), tag, comment);
         }
     }
 
     public static void v(Object object) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
             if (Util.isValidPrintDataType(object)) {
-                separate(LogSeparator.VERBOSE, className, methodName, lineNumber, String.valueOf(object));
+                separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), String.valueOf(object));
             } else {
-                separate(LogSeparator.VERBOSE, className, methodName, lineNumber, object);
+                separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), object);
             }
         }
     }
 
     public static void v(String tag, Object object) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, tag, object);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), tag, object);
         }
     }
 
     public static void v(Object object, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, object, comment);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), object, comment);
         }
     }
 
     public static void v(String tag, Object object, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, tag, object, comment);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), tag, object, comment);
         }
     }
 
     public static void v(ArrayList<?> arrayList) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, arrayList);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), arrayList);
         }
     }
 
     public static void v(String tag, ArrayList<?> arrayList) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, tag, arrayList);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList);
         }
     }
 
     public static void v(ArrayList<?> arrayList, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, arrayList, comment);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), arrayList, comment);
         }
     }
 
     public static void v(String tag, ArrayList<?> arrayList, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, tag, arrayList, comment);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, comment);
         }
     }
 
     public static void v(ArrayList<?> arrayList, int index) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, arrayList, index);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), arrayList, index);
         }
     }
 
     public static void v(String tag, ArrayList<?> arrayList, int index) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, tag, arrayList, index);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index);
         }
     }
 
     public static void v(ArrayList<?> arrayList, int index, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, arrayList, index, comment);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), arrayList, index, comment);
         }
     }
 
     public static void v(String tag, ArrayList<?> arrayList, int index, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, tag, arrayList, index, comment);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index, comment);
         }
     }
 
     public static void v(ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, arrayList, startIndex, endIndex);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex);
         }
     }
 
     public static void v(String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, tag, arrayList, startIndex, endIndex);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex);
         }
     }
 
     public static void v(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, arrayList, startIndex, endIndex, comment);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex, comment);
         }
     }
 
     public static void v(String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.VERBOSE, className, methodName, lineNumber, tag, arrayList, startIndex, endIndex, comment);
+            separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex, comment);
         }
     }
 
@@ -212,176 +155,119 @@ public class Logging extends BaseLogging {
 
     public static void d() {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()));
         }
     }
 
     public static void d(String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, comment);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), comment);
         }
     }
 
     public static void d(String tag, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, tag, comment);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), tag, comment);
         }
     }
 
     public static void d(Object object) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
             if (Util.isValidPrintDataType(object)) {
-                separate(LogSeparator.VERBOSE, className, methodName, lineNumber, String.valueOf(object));
+                separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), String.valueOf(object));
             } else {
-                separate(LogSeparator.DEBUG, className, methodName, lineNumber, object);
+                separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), object);
             }
         }
     }
 
     public static void d(String tag, Object object) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, tag, object);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), tag, object);
         }
     }
 
     public static void d(Object object, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, object, comment);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), object, comment);
         }
     }
 
     public static void d(String tag, Object object, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, tag, object, comment);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), tag, object, comment);
         }
     }
 
     public static void d(ArrayList<?> arrayList) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, arrayList);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), arrayList);
         }
     }
 
     public static void d(String tag, ArrayList<?> arrayList) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, tag, arrayList);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList);
         }
     }
 
     public static void d(ArrayList<?> arrayList, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, arrayList, comment);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), arrayList, comment);
         }
     }
 
     public static void d(String tag, ArrayList<?> arrayList, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, tag, arrayList, comment);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, comment);
         }
     }
 
     public static void d(ArrayList<?> arrayList, int index) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, arrayList, index);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), arrayList, index);
         }
     }
 
     public static void d(String tag, ArrayList<?> arrayList, int index) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, tag, arrayList, index);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index);
         }
     }
 
     public static void d(ArrayList<?> arrayList, int index, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, arrayList, index, comment);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), arrayList, index, comment);
         }
     }
 
     public static void d(String tag, ArrayList<?> arrayList, int index, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, tag, arrayList, index, comment);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index, comment);
         }
     }
 
     public static void d(ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, arrayList, startIndex, endIndex);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex);
         }
     }
 
     public static void d(String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, tag, arrayList, startIndex, endIndex);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex);
         }
     }
 
     public static void d(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, arrayList, startIndex, endIndex, comment);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex, comment);
         }
     }
 
     public static void d(String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.DEBUG, className, methodName, lineNumber, tag, arrayList, startIndex, endIndex, comment);
+            separate(LogSeparator.DEBUG, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex, comment);
         }
     }
 
@@ -391,176 +277,119 @@ public class Logging extends BaseLogging {
 
     public static void i() {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()));
         }
     }
 
     public static void i(String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, comment);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), comment);
         }
     }
 
     public static void i(String tag, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, tag, comment);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), tag, comment);
         }
     }
 
     public static void i(Object object) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
             if (Util.isValidPrintDataType(object)) {
-                separate(LogSeparator.VERBOSE, className, methodName, lineNumber, String.valueOf(object));
+                separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), String.valueOf(object));
             } else {
-                separate(LogSeparator.INFO, className, methodName, lineNumber, object);
+                separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), object);
             }
         }
     }
 
     public static void i(String tag, Object object) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, tag, object);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), tag, object);
         }
     }
 
     public static void i(Object object, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, object, comment);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), object, comment);
         }
     }
 
     public static void i(String tag, Object object, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, tag, object, comment);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), tag, object, comment);
         }
     }
 
     public static void i(ArrayList<?> arrayList) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, arrayList);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), arrayList);
         }
     }
 
     public static void i(String tag, ArrayList<?> arrayList) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, tag, arrayList);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList);
         }
     }
 
     public static void i(ArrayList<?> arrayList, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, arrayList, comment);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), arrayList, comment);
         }
     }
 
     public static void i(String tag, ArrayList<?> arrayList, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, tag, arrayList, comment);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, comment);
         }
     }
 
     public static void i(ArrayList<?> arrayList, int index) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, arrayList, index);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), arrayList, index);
         }
     }
 
     public static void i(String tag, ArrayList<?> arrayList, int index) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, tag, arrayList, index);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index);
         }
     }
 
     public static void i(ArrayList<?> arrayList, int index, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, arrayList, index, comment);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), arrayList, index, comment);
         }
     }
 
     public static void i(String tag, ArrayList<?> arrayList, int index, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, tag, arrayList, index, comment);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index, comment);
         }
     }
 
     public static void i(ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, arrayList, startIndex, endIndex);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex);
         }
     }
 
     public static void i(String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, tag, arrayList, startIndex, endIndex);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex);
         }
     }
 
     public static void i(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, arrayList, startIndex, endIndex, comment);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex, comment);
         }
     }
 
     public static void i(String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.INFO, className, methodName, lineNumber, tag, arrayList, startIndex, endIndex, comment);
+            separate(LogSeparator.INFO, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex, comment);
         }
     }
 
@@ -570,176 +399,119 @@ public class Logging extends BaseLogging {
 
     public static void w() {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()));
         }
     }
 
     public static void w(String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, comment);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), comment);
         }
     }
 
     public static void w(String tag, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, tag, comment);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), tag, comment);
         }
     }
 
     public static void w(Object object) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
             if (Util.isValidPrintDataType(object)) {
-                separate(LogSeparator.VERBOSE, className, methodName, lineNumber, String.valueOf(object));
+                separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), String.valueOf(object));
             } else {
-                separate(LogSeparator.WARN, className, methodName, lineNumber, object);
+                separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), object);
             }
         }
     }
 
     public static void w(String tag, Object object) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, tag, object);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), tag, object);
         }
     }
 
     public static void w(Object object, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, object, comment);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), object, comment);
         }
     }
 
     public static void w(String tag, Object object, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, tag, object, comment);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), tag, object, comment);
         }
     }
 
     public static void w(ArrayList<?> arrayList) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, arrayList);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), arrayList);
         }
     }
 
     public static void w(String tag, ArrayList<?> arrayList) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, tag, arrayList);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList);
         }
     }
 
     public static void w(ArrayList<?> arrayList, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, arrayList, comment);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), arrayList, comment);
         }
     }
 
     public static void w(String tag, ArrayList<?> arrayList, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, tag, arrayList, comment);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, comment);
         }
     }
 
     public static void w(ArrayList<?> arrayList, int index) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, arrayList, index);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), arrayList, index);
         }
     }
 
     public static void w(String tag, ArrayList<?> arrayList, int index) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, tag, arrayList, index);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index);
         }
     }
 
     public static void w(ArrayList<?> arrayList, int index, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, arrayList, index, comment);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), arrayList, index, comment);
         }
     }
 
     public static void w(String tag, ArrayList<?> arrayList, int index, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, tag, arrayList, index, comment);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index, comment);
         }
     }
 
     public static void w(ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, arrayList, startIndex, endIndex);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex);
         }
     }
 
     public static void w(String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, tag, arrayList, startIndex, endIndex);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex);
         }
     }
 
     public static void w(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, arrayList, startIndex, endIndex, comment);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex, comment);
         }
     }
 
     public static void w(String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.WARN, className, methodName, lineNumber, tag, arrayList, startIndex, endIndex, comment);
+            separate(LogSeparator.WARN, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex, comment);
         }
     }
 
@@ -749,176 +521,119 @@ public class Logging extends BaseLogging {
 
     public static void e() {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()));
         }
     }
 
     public static void e(String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, comment);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), comment);
         }
     }
 
     public static void e(String tag, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, tag, comment);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), tag, comment);
         }
     }
 
     public static void e(Object object) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
             if (Util.isValidPrintDataType(object)) {
-                separate(LogSeparator.VERBOSE, className, methodName, lineNumber, String.valueOf(object));
+                separate(LogSeparator.VERBOSE, new ClassInfo().invoke(Thread.currentThread()), String.valueOf(object));
             } else {
-                separate(LogSeparator.ERROR, className, methodName, lineNumber, object);
+                separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), object);
             }
         }
     }
 
     public static void e(String tag, Object object) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, tag, object);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), tag, object);
         }
     }
 
     public static void e(Object object, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, object, comment);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), object, comment);
         }
     }
 
     public static void e(String tag, Object object, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, tag, object, comment);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), tag, object, comment);
         }
     }
 
     public static void e(ArrayList<?> arrayList) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, arrayList);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), arrayList);
         }
     }
 
     public static void e(String tag, ArrayList<?> arrayList) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, tag, arrayList);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList);
         }
     }
 
     public static void e(ArrayList<?> arrayList, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, arrayList, comment);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), arrayList, comment);
         }
     }
 
     public static void e(String tag, ArrayList<?> arrayList, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, tag, arrayList, comment);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, comment);
         }
     }
 
     public static void e(ArrayList<?> arrayList, int index) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, arrayList, index);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), arrayList, index);
         }
     }
 
     public static void e(String tag, ArrayList<?> arrayList, int index) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, tag, arrayList, index);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index);
         }
     }
 
     public static void e(ArrayList<?> arrayList, int index, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, arrayList, index, comment);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), arrayList, index, comment);
         }
     }
 
     public static void e(String tag, ArrayList<?> arrayList, int index, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, tag, arrayList, index, comment);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index, comment);
         }
     }
 
     public static void e(ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, arrayList, startIndex, endIndex);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex);
         }
     }
 
     public static void e(String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, tag, arrayList, startIndex, endIndex);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex);
         }
     }
 
     public static void e(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, arrayList, startIndex, endIndex, comment);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex, comment);
         }
     }
 
     public static void e(String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
         if (isRunning) {
-            String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-            String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-            int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-            separate(LogSeparator.ERROR, className, methodName, lineNumber, tag, arrayList, startIndex, endIndex, comment);
+            separate(LogSeparator.ERROR, new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex, comment);
         }
     }
 
@@ -928,160 +643,109 @@ public class Logging extends BaseLogging {
      */
 
     public static String getMessage() {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()));
     }
 
     public static String getMessage(String comment) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, comment);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), comment);
     }
 
     public static String getMessage(String tag, String comment) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, tag, comment);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), tag, comment);
     }
 
     public static String getMessage(Object object) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
+        ClassInfo classInfo = new ClassInfo().invoke(Thread.currentThread());
         if (Util.isValidPrintDataType(object)) {
-            return getLogMessage(className, methodName, lineNumber, String.valueOf(object));
+            return getLogMessage(classInfo, String.valueOf(object));
         } else {
-            return getLogMessage(className, methodName, lineNumber, object);
+            return getLogMessage(classInfo, object);
         }
     }
 
     public static String getMessage(String tag, Object object) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, tag, object);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), tag, object);
     }
 
     public static String getMessage(Object object, String comment) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, object, comment);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), object, comment);
     }
 
     public static String getMessage(String tag, Object object, String comment) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, tag, object, comment);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), tag, object, comment);
     }
 
     public static String getMessage(ArrayList<?> arrayList) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, arrayList);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), arrayList);
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, tag, arrayList);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), tag, arrayList);
     }
 
     public static String getMessage(ArrayList<?> arrayList, String comment) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, arrayList, comment);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), arrayList, comment);
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList, String comment) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, tag, arrayList, comment);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, comment);
     }
 
     public static String getMessage(ArrayList<?> arrayList, int index) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, arrayList, index);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), arrayList, index);
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList, int index) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, tag, arrayList, index);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index);
     }
 
     public static String getMessage(ArrayList<?> arrayList, int index, String comment) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, arrayList, index, comment);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), arrayList, index, comment);
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList, int index, String comment) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, tag, arrayList, index, comment);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, index, comment);
     }
 
     public static String getMessage(ArrayList<?> arrayList, int startIndex, int endIndex) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, arrayList, startIndex, endIndex);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex);
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList, int startIndex, int endIndex) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, tag, arrayList, startIndex, endIndex);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex);
     }
 
     public static String getMessage(ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, arrayList, startIndex, endIndex, comment);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), arrayList, startIndex, endIndex, comment);
     }
 
     public static String getMessage(String tag, ArrayList<?> arrayList, int startIndex, int endIndex, String comment) {
-
-        String className = getClassName(Thread.currentThread().getStackTrace()[3].getClassName());
-        String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
-        int lineNumber = Thread.currentThread().getStackTrace()[3].getLineNumber();
-        return getLogMessage(className, methodName, lineNumber, tag, arrayList, startIndex, endIndex, comment);
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex, comment);
     }
 
 
+    public static class ClassInfo {
+        private String className;
+        private String methodName;
+        private int lineNumber;
+
+        public String getClassName() {
+            return className;
+        }
+
+        public String getMethodName() {
+            return methodName;
+        }
+
+        public int getLineNumber() {
+            return lineNumber;
+        }
+
+        public ClassInfo invoke(Thread currentThread) {
+            className = getSimpleClassName(currentThread.getStackTrace()[3].getClassName());
+            methodName = currentThread.getStackTrace()[3].getMethodName();
+            lineNumber = currentThread.getStackTrace()[3].getLineNumber();
+            return this;
+        }
+    }
 }
