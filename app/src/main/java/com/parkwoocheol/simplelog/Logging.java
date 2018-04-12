@@ -637,6 +637,11 @@ public class Logging extends BaseLogging {
         }
     }
 
+    public static void json(Object object, LogSeparator logSeparator){
+        if (isRunning){
+            separate(logSeparator, new ClassInfo().invoke(Thread.currentThread()), "\n"+GsonManager.getInstance().toJson(object));
+        }
+    }
 
     /**
      * return Message
@@ -723,25 +728,28 @@ public class Logging extends BaseLogging {
         return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), tag, arrayList, startIndex, endIndex, comment);
     }
 
+    public static String getJsonMessage(Object object){
+        return getLogMessage(new ClassInfo().invoke(Thread.currentThread()), GsonManager.getInstance().toJson(object));
+    }
 
-    public static class ClassInfo {
+    static class ClassInfo {
         private String className;
         private String methodName;
         private int lineNumber;
 
-        public String getClassName() {
+        String getClassName() {
             return className;
         }
 
-        public String getMethodName() {
+        String getMethodName() {
             return methodName;
         }
 
-        public int getLineNumber() {
+        int getLineNumber() {
             return lineNumber;
         }
 
-        public ClassInfo invoke(Thread currentThread) {
+        private ClassInfo invoke(Thread currentThread) {
             className = getSimpleClassName(currentThread.getStackTrace()[3].getClassName());
             methodName = currentThread.getStackTrace()[3].getMethodName();
             lineNumber = currentThread.getStackTrace()[3].getLineNumber();

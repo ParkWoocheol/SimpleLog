@@ -7,7 +7,7 @@ publish {
     artifactId = 'simplelog-android'
     publishVersion = '2.3.0'
     desc = 'simple log for andoird by Park, Woocheol'
-    website = 'https://parkwoocheol.github.io/SimpleLog'
+    website = 'https://github.com/ParkWoocheol/SimpleLog'
 }
 
 android {
