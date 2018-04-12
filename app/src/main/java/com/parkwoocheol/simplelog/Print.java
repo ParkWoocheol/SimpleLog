@@ -31,7 +31,6 @@ class Print {
 
     private static final int SINGLE_OBJECT = -1;
 
-
     static void print(LogSeparator logSeparator, String tag, Object object) {
         inputLogMessage(logSeparator, tag, object, SINGLE_OBJECT);
     }
