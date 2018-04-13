@@ -143,7 +143,9 @@ public class DemoActivity extends Activity {
         ...
         
         /**
-         * If you want to get a json log message
+         * print form :
+         * class name : method name, line
+         * json
          */
          Logging.json(Object object, LogSeparator logSeparator);
         
