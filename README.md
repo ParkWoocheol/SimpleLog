@@ -172,13 +172,13 @@ Maven:
 <dependency>
   <groupId>com.parkwoocheol</groupId>
   <artifactId>simplelog-android</artifactId>
-  <version>2.3.0</version>
+  <version>2.3.1</version>
   <type>pom</type>
 </dependency>
 ```
 Gradle:
 ```groovy
-compile 'com.parkwoocheol:simplelog-android:2.3.0'
+compile 'com.parkwoocheol:simplelog-android:2.3.1'
 ```
 Developed By
 ============

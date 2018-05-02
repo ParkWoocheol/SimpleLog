@@ -5,7 +5,7 @@ publish {
     userOrg = 'woocheol'
     groupId = 'com.parkwoocheol'
     artifactId = 'simplelog-android'
-    publishVersion = '2.3.0'
+    publishVersion = '2.3.1'
     desc = 'simple log for andoird by Park, Woocheol'
     website = 'https://github.com/ParkWoocheol/SimpleLog'
 }
@@ -28,7 +28,7 @@ android {
     }
 
     dependencies{
-        compile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
+        compile group: 'com.google.code.gson', name: 'gson', version: '2.8.2'
     }
 }
 
