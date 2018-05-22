@@ -178,7 +178,7 @@ Maven:
 ```
 Gradle:
 ```groovy
-compile 'com.parkwoocheol:simplelog-android:2.3.1'
+implementation 'com.parkwoocheol:simplelog-android:2.3.1'
 ```
 Developed By
 ============
